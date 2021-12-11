@@ -14,6 +14,12 @@
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+      body {
+  background-image: url('./public/images/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -37,26 +43,26 @@
     
 <main class="form-login">
   <form method="POST">
-    <img class="mb-4" src="./public/images/1.png" alt="" width="72" height="57">
-    <h1 class="h4 mb-3 fw-normal text-info">Hệ thống điều tra dân số CitizenV</h1>
+    <img class="mb-4" src="./public/images/1.png" alt="" width="100" height="79">
+    <h1 class="h4 mb-3 fw-bold text-primary" >Hệ thống điều tra dân số CitizenV</h1>
     <h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
 
     <div class="form-floating">
-      <input type="username" class="form-control" id="floatingInput" name = "username">
-      <label for="floatingInput">Username</label>
+      <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Tên tài khoản</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name = "password">
-      <label for="floatingPassword">Password</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Mật khẩu</label>
     </div>
 
     <div class="checkbox mb-3">
-      <label>
+      <label class="">
         <input type="checkbox" value="remember-me"> Ghi nhớ đăng nhập
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Đăng nhập</button>
-    <p class="mt-5 mb-3 text-muted">&copy; Nhóm Rồng-2021</p>
+    <p class="mt-5 mb-3 text-warning">&copy; Nhóm Rồng-2021</p>
   </form>
 </main>
    
