@@ -15,11 +15,11 @@
 
     <style>
       body {
-  background-image: url('./public/images/bg.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
+        background-image: url('./public/images/bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -48,11 +48,11 @@
     <h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
 
     <div class="form-floating">
-      <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="username" class="form-control" id="floatingInput" name="username" >
       <label for="floatingInput">Tên tài khoản</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">Mật khẩu</label>
     </div>
 
