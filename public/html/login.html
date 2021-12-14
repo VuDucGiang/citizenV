@@ -1,68 +1,60 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>CitizenV</title>
-    
-    <style>
-      
-      /*body {
-        background-image: url('./public/images/bg.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-      }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CitizenV</title>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }*/
-    </style>
+  <!-- Bootstrap + JQuery CSS -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./assets/css/jquery-ui.css" rel="stylesheet">
+  <link href="./assets/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/responsive.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom styles for this template -->
-    <link href="./public/css/login.css" rel="stylesheet">
-  </head>
+  <!-- Bootstrap + JQuery JS -->
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./assets/js/jquery-ui-1.9.2.datepicker.min.js"></script>
+  <script src="./assets/js/jquery.reject.js"></script>
+  <script src="./assets/js/utils.js"></script> 
+  <script src="./assets/js/jquery.dataTables.min.js"></script>
+
+
+  <!-- Custom styles for this template -->
+  <link href="./public/css/style.css" rel="stylesheet">
+</head>
   <body class="text-center">
     
-    <main class="form-login">
-      <form method="POST">
-        <img class="mb-4" src="./public/images/logo.png" alt="" width="100" height="79">
-        <h1 class="h4 mb-3 fw-bold text-primary" >Hệ thống điều tra dân số CitizenV</h1>
-        <h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
+   <main class="form-login">
+    <form method="POST">
+      <img class="mb-4" src="./public/images/1.png" alt="" width="72" height="57">
+      <h1 class="h4 mb-3 fw-normal text-info">Hệ thống điều tra dân số CitizenV</h1>
+      <h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
 
-        <div class="form-floating">
-          <input type="username" class="form-control" id="floatingInput" name="username" >
-          <label for="floatingInput">Tên tài khoản</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-          <label for="floatingPassword">Mật khẩu</label>
-        </div>
-
-        <div class="checkbox mb-3">
-          <label class="">
-            <input type="checkbox" value="remember-me"> Ghi nhớ đăng nhập
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Đăng nhập</button>
-        <p class="mt-5 mb-3 text-warning">&copy; Nhóm Rồng-2021</p>
-      </form>
-    </main>
+      <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+        <input type="username" class="form-control" placeholder="Tên đăng nhập" name="username">
+      </div>
+      <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Ghi nhớ đăng nhập
+        </label>
+      </div>
+      <div class="form-group">
+        <button type="submit" name="s_login" class="btn btn-block">Đăng nhập</button>
+      </div>
+    </form>
+    <div class="form-group text-center">
+      <a href="">Quên mật khẩu?
+        <!--/a>&nbsp;|&nbsp;<a href=""Support-->
+      </a>
+    </div>
+  </main>
 
   </body>
 </html>
