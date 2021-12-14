@@ -50,7 +50,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CitizenV</a>
+          <a class="navbar-brand" href="#"> 
+            <span style="color: rgb(24, 163, 197);">          
+              <img src="../public/images/logo.png" height="30" width="30">
+              CitizenV
+            </span>
+          </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
