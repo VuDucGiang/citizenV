@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "info">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>CCCD</th>
+                    <th>Họ Và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Giới tính</th>
+                    <th>Quê quán</th>
+                    <th>Địa chỉ thường trú</th>
+                    <th>Địa chỉ tạm trú</th>
+                    <th>Tôn giáo</th>
+                    <th>Trình độ văn hóa</th>
+                    <th>Nghề nghiệp</th>
+                    <th>Mã địa chỉ</th>
+                </tr>
+            </thead>
+			<tbody>
+
+			</tbody>
+        </table>
+    </div>
+
+    <script>
+		fetch("./info.json")
+		.then(resp => {
+			if (resp.status == 200) {
+				resp.json()
+				.then(ret => {
+					if (ret.status == "OK") {
+						tbody = document.querySelector("#table tbody");
+						for (i=0; i<ret.data.length; i++) {
+							let r = document.createElement('tr');
+							let cccd = document.createElement('td');
+							cccd.innerHTML = ret.data[i].id;
+							let name = document.createElement('td');
+							name.innerHTML = ret.data[i].name;
+							let email = document.createElement('td');
+							email.innerHTML = ret.data[i].email;
+							let phone = document.createElement('td');
+							phone.innerHTML = ret.data[i].phone;
+							r.appendChild(id);
+							r.appendChild(name);
+							r.appendChild(phone);
+							r.appendChild(email);
+							tbody.appendChild(r);
+						}
+					}
+
+				});
+			}
+		});
+	</script>
+</body>
+</html>
