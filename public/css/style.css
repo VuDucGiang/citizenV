@@ -1,0 +1,21 @@
+.navbar li::after {
+  height: 4px;
+  background: #00CED1;
+}
+
+.form-login {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.submit-button {
+  color: white; 
+  background-color: rgb(24, 163, 197);
+}
+
+.submit-button:hover {
+  color: white;
+  background-color: rgb(13, 93, 139);
+}
