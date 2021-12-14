@@ -17,20 +17,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CitizenV</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap + JQuery CSS -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <link href="./assets/dist/css/jquery-ui.css" rel="stylesheet">
-  <link href="./assets/dist/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+  <link href="../assets/css/jquery-ui.css" rel="stylesheet">
+  <link href="../assets/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
 
-
+  <!-- Bootstrap + JQuery JS -->
   <script src="../assets/js/jquery.min.js"></script>
   <script src="../assets/js/bootstrap.min.js"></script>
-  <!-- <script src="./assets/dist/js/jquery.dataTables.min.js"></script> -->
-
-
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <script src="../assets/js/jquery-ui-1.9.2.datepicker.min.js"></script>
+  <script src="../assets/js/jquery.reject.js"></script>
+  <script src="../assets/js/utils.js"></script> 
+  <script src="../assets/js/jquery.dataTables.min.js"></script>
 
 
   <!-- Custom styles for this template -->
@@ -38,7 +39,6 @@
 </head>
 
 <body class="text-center">
-
   <header>
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -75,6 +75,9 @@
             <a href="#">Hỗ trợ</a>
             </li>
 
+            <li>
+            <a href="#">Đăng xuất</a>
+            </li>
             <!-- <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>><a
                 href="?page=3">Result</a></li>
                         

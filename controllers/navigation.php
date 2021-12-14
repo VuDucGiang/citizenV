@@ -1,5 +1,5 @@
 <?php
-  //if ((!isset($_GET['page']))) include 'loginController.php';
+  if ((!isset($_GET['page']))) include 'infoController.php';
 
   if(isset($_GET['page'])) {
     $page=$_GET['page'];
