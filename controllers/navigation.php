@@ -10,9 +10,11 @@
     if ($page == '2'){
       include 'infoController.php';
     }
-    // if ($page == '3'){
-    //   include 'pages/result.php';
-    // }
+    if ($page == '3'){
+      session_unset(); 
+      session_destroy();
+      header('Location: ../index.php');
+    }
     // if ($page == '30'){
     //   include 'admin/marks_entry.php';
     // }

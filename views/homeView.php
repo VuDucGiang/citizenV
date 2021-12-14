@@ -76,7 +76,7 @@
             </li>
 
             <li>
-            <a href="#">Đăng xuất</a>
+            <a href="?page=3">Đăng xuất</a>
             </li>
             <!-- <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>><a
                 href="?page=3">Result</a></li>
