@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      #table-content th {
-        color: white;
-        background-color: rgb(24, 163, 197);
-      }
-    </style>
   </head>
   <body>
     <section id="nav-after">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-offset-4 col-md-4 col-sm-12">
+          <div class="col-md-offset-4 col-md-4 col-sm-8 col-xs-10">
             <div id="search-box">
               <input
                 type="search"
@@ -27,14 +18,16 @@
               ></span>
             </div>
           </div>
-          <!-- <div class="col-sm-12 col-md-offset-2 col-md-3">
-            <button onclick="window.location='include/pdf/student.php'" class="exel_dl_btn"><img class="exel_dl_img"
-                alt="Download in Exel" title="Download in PDF" src="images/icons/pdf_dl.png"></button>
-    
-            <button onclick="window.location='include/exel/downloader/public_student.php'" class="exel_dl_btn"><img
+          <div class="col-md-offset-2 col-md-2 col-sm-4 col-xs-2">
+            <button class="btn btn-success" id="save-info" disabled>Lưu
+							<span class="search"
+								><i class="fa fa-save" aria-hidden="true"></i
+							></span>
+						</button>
+            <!-- <button onclick="window.location='include/exel/downloader/public_student.php'" class="exel_dl_btn"><img
                 class="exel_dl_img" alt="Download in Exel" title="Download in Excel"
-                src="images/icons/exel_dl.ico"></button>
-          </div> -->
+                src="images/icons/exel_dl.ico"></button> -->
+          </div>
         </div>
       </div>
     </section>
@@ -56,7 +49,7 @@
                 <thead>
                   <tr>
                     <th class="text-center">STT</th>
-                    <th class="text-center">CMND/CCCD</th>
+                    <th class="text-center">CMND / CCCD</th>
                     <th class="text-center">Họ Và Tên</th>
                     <th class="text-center">Ngày Sinh</th>
                     <th class="text-center">Giới tính</th>
@@ -66,6 +59,7 @@
                     <th class="text-center">Tôn giáo</th>
                     <th class="text-center">Trình độ văn hóa</th>
                     <th class="text-center">Nghề nghiệp</th>
+										<th class="text-center del-edit-header">Hành động</th>
                   </tr>
                 </thead>
                 <tbody></tbody>

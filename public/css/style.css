@@ -20,3 +20,15 @@
   background-color: rgb(13, 93, 139);
 }
 
+#table th {
+  color: white;
+  background-color: rgb(24, 163, 197);
+}
+
+.del-edit-header {
+  width: 130px;
+}
+/* 
+.edit-btn, .del-btn {
+  margin-right: 2px;
+} */

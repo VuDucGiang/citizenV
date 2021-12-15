@@ -1,3 +1,6 @@
+// thêm nút lưu, sửa, xóa vào bảng, dòng có stt 1 nút xóa có id=del_1, nút sửa có id=edit_1
+// ban đầu để lưu disable, chỉ được enable khi nút sửa/xóa được bấm
+// chưa xử lý event, 
 $(document).ready(function() {
   $("#search").keyup(function () {
     _this = this;
@@ -41,6 +44,21 @@ fetch("http://localhost/city/public/info.json").then((resp) => {
           trinhDoVanHoa.innerHTML = ret.data[i].trinhDoVanHoa;
           let ngheNghiep = document.createElement("td");
           ngheNghiep.innerHTML = ret.data[i].ngheNghiep;
+          let del_button = document.createElement("BUTTON");
+          del_button.innerHTML = "Xóa";
+          del_button.id = "del_" + (i+1);
+          del_button.classList.add("btn");
+          del_button.classList.add("btn-danger");
+          del_button.classList.add("del_btn");
+          let edit_button = document.createElement("BUTTON");
+          edit_button.innerHTML = "Sửa";
+          edit_button.id = "edit_" + (i+1);
+          edit_button.classList.add("btn");
+          edit_button.classList.add("btn-primary");
+          edit_button.classList.add("edit_btn");
+          let del_edit = document.createElement("td");
+          del_edit.appendChild(del_button);
+          del_edit.appendChild(edit_button);
           r.appendChild(stt);
           r.appendChild(cccd);
           r.appendChild(ten);
@@ -52,9 +70,11 @@ fetch("http://localhost/city/public/info.json").then((resp) => {
           r.appendChild(tonGiao);
           r.appendChild(trinhDoVanHoa);
           r.appendChild(ngheNghiep);
+          r.appendChild(del_edit);
           tbody.appendChild(r);
         }
       }
     });
   }
 });
+
