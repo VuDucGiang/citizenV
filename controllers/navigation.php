@@ -15,18 +15,22 @@
       session_destroy();
       header('Location: ../index.php');
     }
-    // if ($page == '30'){
-    //   include 'admin/marks_entry.php';
-    // }
+    if ($page == '4'){
+      include 'changePassController.php';
+    }
+    if ($page == '5'){
+      include 'manageController.php';
+    }
+    if ($page == '6'){
+      include 'statisticsController.php';
+    }
     // if ($page == '31'){
     //   include 'admin/marks_view.php';
     // }
     // if ($page == '4'){
     //   include 'pages/login.php';
     // }
-    // if ($page == '5'){
-    //   include 'admin/insert.php';
-    // }
+
     // if ($page == '6'){
     //   session_unset(); 
     //   session_destroy();

@@ -3,6 +3,10 @@
   background: #00CED1;
 }
 
+.navbar .noafter::after {
+  height: 0px;
+}
+
 .form-login {
   width: 100%;
   max-width: 330px;
@@ -29,6 +33,6 @@
   width: 130px;
 }
 /* 
-.edit-btn, .del-btn {
-  margin-right: 2px;
+#info-header {
+  padding-top: 300px;
 } */
