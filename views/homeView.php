@@ -41,7 +41,7 @@
 
 <body class="text-center">
   <header>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -63,42 +63,40 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
 
-            <li <?php 
-              if (isset($_GET['page']) && $_GET['page']=='1' ) echo 'class="active"' 
-              ?>
-            >
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='1' ) echo 'class="active"' ?> >
               <a href="?page=1">Nhập liệu</a>
             </li>
 
-            <li <?php 
-              if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page']=='2' )) echo 'class="active"' 
-              ?>
-            >
-            <a href="?page=2">Thông tin dân số</a>
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='2' ) echo 'class="active"' ?>>
+            <a href="?page=2">Dữ liệu</a>
             </li>
 
-            <li>
-            <a href="#">Hỗ trợ</a>
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='6' ) echo 'class="active"' ?>>
+            <a href="?page=6">Thống kê</a>
+            </li>
+            
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo 'class="active"' ?>>
+            <a href="?page=5">Quản lý</a>
             </li>
 
-            <li>
-            <a href="?page=3">Đăng xuất</a>
+            <li
+              class="dropdown noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Tài khoản[admin]<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu ">
+                <li class="noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
+                  <a href="?page=4">Đổi mật khẩu</a>
+                </li>
+                <li class="noafter"><a href="?page=3">Đăng xuất</a></li>
+              </ul>
             </li>
+    
             <!-- <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>><a
                 href="?page=3">Result</a></li>
                         
             <?php if ($user==1) {?>
-            <li
-              class="dropdown <?php if (isset($_GET['page']) && ($_GET['page'] == '30' || $_GET['page'] == '31') ) echo 'active'?>">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Marks
-                <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li <?php if (isset($_GET['page']) && $_GET['page']=='30' ) echo 'class="active"' ?>><a
-                    href="?page=30">Marks Entry</a></li>
-                <li <?php if (isset($_GET['page']) && $_GET['page']=='31' ) echo 'class="active"' ?>><a
-                    href="?page=31">View Marks</a></li>
-              </ul>
-            </li>
+            
             
             <li <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo 'class="active"' ?>><a
                 href="?page=5">Insert</a></li>
