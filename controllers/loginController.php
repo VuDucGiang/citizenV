@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('./models/loginModel.php');
     require_once('./views/loginView.php');
     
@@ -20,6 +21,7 @@
                     $model = new UserModel();
                     $result = $model -> checkAuth($uname, $passwd);
                     if ($result) {
+                        $_SESSION["login"] = $uname;
                         header('Location: views/homeView.php');
                     } else {
                         header('Location: views/loginErr.php');
