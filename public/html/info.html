@@ -1,8 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head>
+  <head> </head>
   <body>
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <style scoped>
+        .modal-dialog{
+            position: relative;
+            /* display: table; /* This is important */ 
+            overflow-y: auto;    
+            overflow-x: auto;
+            width: auto;
+            min-width: 300px;  
+            max-width: 900px; 
+        }
+      </style>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">
+              Thông tin cá nhân
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="form-horizontal custom-form"
+              name="s_form"
+              method="post"
+            >
+              <!-- Số CMND/CCCD -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="name-input-field">Số CMND/CCCD</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    name="f_cccd"
+                    id="cccd"
+                    type="text"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Họ tên -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="name-input-field">Họ và tên</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    name="f_name"
+                    id="ten"
+                    type="text"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Ngày sinh, giới tính -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="datepicker">Ngày sinh</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control datepicker"
+                    name="b_date"
+                    id="ngay-sinh"
+                    type="text"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+                <div class="col-sm-2 control-label">
+                  <label>Giới tính</label>
+                </div>
+                <div class="col-sm-3">
+                  <div data-toggle="buttons">
+                    <label class="btn btn-default male btn-circle active"
+                      ><input
+                        id="male"
+                        type="radio"
+                        name="gender"
+                        checked
+                        value="Male" /><i
+                        class="fa fa-male"
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label for="male"> Nam</label>
+                    <label class="btn btn-default female btn-circle"
+                      ><input
+                        id="fe-male"
+                        type="radio"
+                        name="gender"
+                        value="Female" /><i
+                        class="fa fa-female"
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label for="fe-male"> Nữ</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Quê quán -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Quê quán</label>
+                </div>
+                <div class="col-sm-8 input-column que-quan">
+                  <input
+                    class="form-control"
+                    id="que"
+                    name="que_duong"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ thường trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ thường trú</label>
+                </div>
+                <div class="col-sm-8 input-column thuong-tru">
+                  <input
+                    class="form-control"
+                    id="thuong-tru"
+                    name="thuong_duong"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ tạm trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ tạm trú</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    id="tam-tru"
+                    name="tam_duong"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Văn hóa, tôn giáo -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="van_hoa">Trình độ văn hóa</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="van-hoa"
+                    name="van_hoa"
+                    type="text"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+                <div class="col-sm-2 control-label">
+                  <label for="ton_giao">Tôn giáo</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="ton-giao"
+                    name="ton_giao"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <!-- Nghề nghiệp -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label class="control-label" for="job">Nghề nghiệp</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    id="job"
+                    name="job"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit/Reset -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label class="control-label"></label>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    class="btn btn-block btn-success"
+                    type="submit"
+                  >
+                    Lưu
+                  </button>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    type="button"
+                    class="btn btn-block btn-warning"
+                    data-dismiss="modal"
+                  >
+                    Hủy
+                  </button>
+                </div>
+              </div>
+              <!-- Thông báo submit thành công/thất bại -->
+              <p id="submit-msg"></p>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
     <section class="navbar-after">
       <style scoped>
         #info-header {
@@ -31,6 +273,16 @@
               ></span>
             </div>
           </div>
+          <!-- <div class="col-md-3 col-sm-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
+              Open modal
+            </button>
+          </div> -->
           <!-- <div class="col-md-offset-2 col-md-2 col-sm-4 col-xs-2">
             <button class="btn btn-success" id="save-info" disabled>Lưu
 							<span class="search"
@@ -46,9 +298,9 @@
     </section>
     <section id="table-content">
       <style scoped>
-        .table-div{
-          position: relative; 
-          top: 100px; 
+        .table-div {
+          position: relative;
+          top: 100px;
         }
       </style>
       <div class="container-fluid">
@@ -78,7 +330,7 @@
                     <th class="text-center">Tôn giáo</th>
                     <th class="text-center">Trình độ văn hóa</th>
                     <th class="text-center">Nghề nghiệp</th>
-										<th class="text-center del-edit-header">Hành động</th>
+                    <th class="text-center del-edit-header">Hành động</th>
                   </tr>
                 </thead>
                 <tbody></tbody>
