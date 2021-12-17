@@ -156,4 +156,3 @@ fetch("../public/info.json").then((resp) => {
     });
   }
 });
-

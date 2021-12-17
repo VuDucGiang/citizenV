@@ -1,7 +1,7 @@
 <?php
   /*$user=0;
   $login=0;*/
-  //session_start();
+  session_start();
   /*if (isset($_SESSION['newSession'])) {
     $login=1;
     $user=1;
@@ -82,7 +82,7 @@
             <li
               class="dropdown noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Tài khoản[admin]<span class="caret"></span>
+                Tài khoản[<?php print_r($_SESSION['login'])?>]<span class="caret"></span>
               </a>
               <ul class="dropdown-menu ">
                 <li class="noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
@@ -113,5 +113,5 @@
       </div><!-- /.container-fluid -->
     </nav>
   </header>
-
-<?php require "../controllers/navigation.php"; ?>
+  </html>
+<?php require "../controllers/navigation.php"; ?> 
