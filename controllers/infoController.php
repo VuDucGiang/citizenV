@@ -13,7 +13,7 @@
                 $model = new InfoModel();
                 $result = $model -> getInfo();
                 $arr = array("status"=>"OK", "data" => $result);
-                //echo json_encode($result, JSON_UNESCAPED_UNICODE);
+                //echo json_encode($arr, JSON_UNESCAPED_UNICODE);
                 return json_encode($arr, JSON_UNESCAPED_UNICODE);    
                 
             }
