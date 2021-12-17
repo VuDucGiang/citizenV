@@ -1,11 +1,12 @@
 <?php
-  $user=0;
-  $login=0;
-  session_start();
-  if (isset($_SESSION['newSession'])) {
+  /*$user=0;
+  $login=0;*/
+  //session_start();
+  /*if (isset($_SESSION['newSession'])) {
     $login=1;
     $user=1;
-  }
+  }*/
+  //print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
