@@ -71,43 +71,23 @@
             <a href="?page=2">Dữ liệu</a>
             </li>
 
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='6' ) echo 'class="active"' ?>>
-            <a href="?page=6">Thống kê</a>
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>>
+            <a href="?page=3">Thống kê</a>
             </li>
             
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo 'class="active"' ?>>
-            <a href="?page=5">Quản lý</a>
+            <li <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo 'class="active"' ?>>
+            <a href="?page=4">Quản lý</a>
             </li>
 
             <li
-              class="dropdown noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
+              class="dropdown noafter <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo ' active' ?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Tài khoản[<?php print_r($_SESSION['login'])?>]<span class="caret"></span>
               </a>
               <ul class="dropdown-menu ">
-                <li class="noafter <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo ' active' ?>">
-                  <a href="?page=4">Đổi mật khẩu</a>
-                </li>
-                <li class="noafter"><a href="?page=3">Đăng xuất</a></li>
+                <li class="noafter"><a href="?page=5">Đăng xuất</a></li>
               </ul>
             </li>
-    
-            <!-- <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>><a
-                href="?page=3">Result</a></li>
-                        
-            <?php if ($user==1) {?>
-            
-            
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo 'class="active"' ?>><a
-                href="?page=5">Insert</a></li>
-            <?php } if ($login==1) { ?>
-            <li><a href="?page=6">Logout</a></li>
-            <?php }else{?>
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo 'class="active"' ?>><a
-                href="?page=4">Login</a></li>
-            <?php } ?> -->
-           
-
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

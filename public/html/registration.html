@@ -43,16 +43,15 @@
               <!-- Số CMND/CCCD -->
               <div class="form-group">
                 <div class="col-sm-4 control-label">
-                  <label for="name-input-field">Số CMND/CCCD</label>
+                  <label>Số CMND/CCCD</label>
                 </div>
                 <div class="col-sm-8 input-column">
                   <input
                     class="form-control"
                     name="f_cccd"
-                    
                     type="text"
-                    placeholder="12345678"
-                    pattern="[0-9]{8}"
+                    placeholder="123456789"
+                    pattern="[0-9]{9,12}"
                     required
                     oninput="setCustomValidity('')"
                     oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
@@ -62,7 +61,7 @@
               <!-- Họ tên -->
               <div class="form-group">
                 <div class="col-sm-4 control-label">
-                  <label for="name-input-field">Họ và tên</label>
+                  <label>Họ và tên</label>
                 </div>
                 <div class="col-sm-8 input-column">
                   <input
@@ -360,7 +359,6 @@
                     placeholder="Trình độ văn hóa"
                     type="text"
                     pattern=".{0,}"
-                    
                     oninput="setCustomValidity('')"
                     required
                     oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
@@ -380,12 +378,12 @@
                 </div>
               </div>
 
-              <!-- Nghề nghiệp -->
+              <!-- Nghề nghiệp, mã địa chỉ -->
               <div class="form-group">
                 <div class="col-sm-4 control-label">
-                  <label class="control-label" for="job">Nghề nghiệp</label>
+                  <label for="job">Nghề nghiệp</label>
                 </div>
-                <div class="col-sm-8 input-column">
+                <div class="col-sm-3 input-column">
                   <input
                     class="form-control"
                     id="job"
@@ -394,14 +392,10 @@
                     type="text"
                   />
                 </div>
-              </div>
-              
-              <!-- Mã địa chỉ -->
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label class="control-label" for="job">Mã vùng</label>
+                <div class="col-sm-2 control-label">
+                  <label for="job">Mã vùng</label>
                 </div>
-                <div class="col-sm-4 input-column">
+                <div class="col-sm-3 input-column">
                   <input
                     class="form-control"
                     id="ma_vung"
@@ -419,7 +413,7 @@
               <!-- Submit/Reset -->
               <div class="form-group">
                 <div class="col-sm-4 control-label">
-                  <label class="control-label"></label>
+                  <label></label>
                 </div>
                 <div class="col-sm-4">
                   <button
