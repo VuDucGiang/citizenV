@@ -59,14 +59,11 @@
                 $stmt -> bindValue(9, $van_hoa);
                 $stmt -> bindValue(10, $job);
                 $stmt -> bindValue(11, $ma_vung);
-                echo $f_cccd, $f_name, $b_date, $gender, $que_quan, $thuong_tru, $tam_tru, $ton_giao, $van_hoa, $job, $ma_vung;
+                
                 $stmt -> execute();
                 
-            
-                
-                printf("%d Row inserted.\n", $stmt->affected_rows);
-
-                echo "New records created successfully";
+                $message = "New records created successfully";
+                echo "<script type='text/javascript'>alert('$message');</script>";
 
                 //$stmt->close();
                 //$submit_pdo->close();
