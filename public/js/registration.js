@@ -2,8 +2,8 @@ $(document).ready(function () {
   $(function () {
 
     $('.datepicker').datepicker({
-        dateFormat: "dd-mm-yy",
-        defaultDate: "01/30/1960",
+        dateFormat: "yy-mm-dd",
+        defaultDate: "1960-01-01",
         yearRange: "c-30:c+60",
         dayNamesMin: [ "CN", "T2", "T3", "T4", "T5", "T6", "T7" ],
         monthNamesShort: [ "Th 1", "Th 2", "Th 3", "Th 4", "Th 5",

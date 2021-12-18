@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"status":"OK","data":[]}
+=======
+{"status":"OK","data":[{"id":"6","username":"0101","password":"123","ngaydong":"2021-12-30"}]}
+>>>>>>> da75b7844883fcb8547a78648319bcb6e989a340
