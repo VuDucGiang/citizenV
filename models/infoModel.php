@@ -1,6 +1,7 @@
 <?php
     
     class InfoModel {
+        private $pdo;
 
         public function __construct() {
             require_once('connect.php');
@@ -19,5 +20,7 @@
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
            
         }
+
+        
     }
 ?>

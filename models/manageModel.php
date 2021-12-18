@@ -26,22 +26,17 @@
         }
 
         public function submitAddManager() {
-            $host = "localhost";   
-            $dbname = "citizenv"; 
-            $username = "root";    
-            $password = "";       
-            //$password = "123";         
-            //$password = "hiep";
-            $connect = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
 
             $don_vi=$_POST['don_vi'];
             $username = $_POST['username'];
             $password = $_POST['password'];
             $c_date = $_POST['c_date'];
             $tien_do = "Chưa hoàn thành";
-
-            $stmt = $connect ->prepare('INSERT INTO `quyensd` (`donVi`, `username`, `password`, `ngayDong`, `tienDo`)
-                                            VALUES (?, ?, ?, ?, ?);');
+            //echo $don_vi, $username, $password, $c_date, $tien_do;
+            //Đoạn dưới bị lỗi
+            include('connect.php');
+            $stmt = $this -> pdo ->prepare("INSERT INTO quyensd (donVi, username, password, ngayDong, tienDo) 
+                                            VALUES (?, ?, ?, ?, ?);");
 
             $stmt -> bindValue(1, $don_vi);
             $stmt -> bindValue(2, $username);
