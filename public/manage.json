@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 {"status":"OK","data":[{"id":"6","donVi":"Ba Đình","username":"0101","password":"123","ngayDong":"2021-12-30","tienDo":"Chưa hoàn thành"}]}
+=======
+<<<<<<< HEAD
+{"status":"OK","data":[{"id":"5","username":"01","password":"123","ngaydong":"2021-12-31","donvi":"Hà Nội","tiendo":"Chưa hoàn thành"}]}
+=======
+{"status":"OK","data":[{"id":"5","username":"01","password":"123","ngaydong":"2021-12-31"}]}
+>>>>>>> c74ad9a11a92c14d22ad7480d4835fdda1063de7
+>>>>>>> fd394c7978919e2be3a4e7d4cd5d83bd60220d0d
