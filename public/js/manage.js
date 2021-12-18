@@ -5,11 +5,11 @@ $(document).ready(function () {
       for (i = 0; i < ret.data.length; i++) {
         $("#table tbody").append(
           "<tr>" +
-          "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donvi + "</td>" +
+          "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donVi + "</td>" +
           "<td id=user-" + (i + 1) + ">" + ret.data[i].username + "</td>" +
           "<td id=pass-" + (i + 1) + ">" + ret.data[i].password + "</td>" +
-          "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngaydong + "</td>" +
-          "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tiendo + "</td>" +
+          "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngayDong + "</td>" +
+          "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tienDo + "</td>" +
           "<td>" +
           "<button class='btn btn-primary' id=edit-" + (i + 1) + ">Sửa</button>" +
           "<button class='btn btn-danger' id=del-" + (i + 1) + ">Xóa</button>" +
