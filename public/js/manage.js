@@ -1,35 +1,37 @@
-
-fetch("../public/manage.json").then((resp) => {
-    if (resp.status == 200) {
-      resp.json().then((ret) => {
-        if (ret.status == "OK") {
-            
-          tbody = document.querySelector("#table tbody");
-
-          for (i = 0; i < ret.data.length; i++) {
-            let r = document.createElement("tr");
-            let stt = document.createElement("td");
-            stt.innerHTML = i + 1;
-            let username = document.createElement("td");
-            username.innerHTML = ret.data[i].username;
-            let password = document.createElement("td")
-            password.innerHTML = ret.data[i].password;
-            let ngaydong = document.createElement("td")
-            ngaydong.innerHTML = ret.data[i].ngaydong;
-  
-            r.appendChild(stt);
-            r.appendChild(username);
-            r.appendChild(password);
-            r.appendChild(ngaydong);
-            
-            tbody.appendChild(r);
-          }
-        }
-      });
-    }
-  });
   
 $(document).ready(function () {
+  $.getJSON("../public/manage.json", function (ret) {
+    if (ret.status == "OK") {
+      for (i = 0; i < ret.data.length; i++) {
+        $("#table tbody").append(
+          "<tr>" +
+          "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donvi + "</td>" +
+          "<td id=user-" + (i + 1) + ">" + ret.data[i].username + "</td>" +
+          "<td id=pass-" + (i + 1) + ">" + ret.data[i].password + "</td>" +
+          "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngaydong + "</td>" +
+          "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tiendo + "</td>" +
+          "<td>" +
+          "<button class='btn btn-primary' id=edit-" + (i + 1) + ">Sửa</button>" +
+          "<button class='btn btn-danger' id=del-" + (i + 1) + ">Xóa</button>" +
+          "</td>" +
+          + "</tr>"
+        )
+      }
+    }
+  });
+
+  $(document).on('click','.btn-primary', function(event) {
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+
+    $('#myModal #don-vi').val($("#don-vi-" + get_row).text());
+    $('#myModal #user').val($("#user-" + get_row).text());
+    $('#myModal #pass').val($("#pass-" + get_row).text());
+    $('#myModal #c-date').val($("#c-date-" + get_row).text());
+
+    $('#myModal').modal('show');
+  });
+
   $(function () {
 
     $('.datepicker').datepicker({

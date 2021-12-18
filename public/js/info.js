@@ -33,6 +33,9 @@ $(document).ready(function () {
     if ($("#gioi-tinh-" + get_row).text() == "Nữ") {
       $("#myModal .female").addClass("active");
       $("#myModal .male").removeClass("active");
+    } else {
+      $("#myModal .male").addClass("active");
+      $("#myModal .female").removeClass("active");
     }
 
     $('#myModal').modal('show');
