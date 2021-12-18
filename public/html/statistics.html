@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-</body>
+  <head>
+  </head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <section class="after-navbar">
+      <style scoped>
+        div.container-fluid {
+          position: relative;
+          top: 60px;
+        }
+      </style>
+      <div class="container-fluid">
+        <div class="row">
+          <label class="col-sm-4 control-label">1. Giới tính</label>
+        </div>
+        <div class="row">
+          <div class="col-sm-offset-1 col-sm-1 col-xs-4 gioi-tinh-so-lieu-1"></div>
+          <div id="chart_gender_1"  class="col-sm-3 col-xs-8" style="width: 400px; height: 250px;"></div>
+          <div class="col-sm-1 col-xs-4 gioi-tinh-so-lieu-2"></div>
+          <div id="chart_gender_2"  class="col-sm-offset-1 col-sm-6 col-xs-8" style="width: 500px; height: 220px;"></div>
+        </div>
+      </div>
+    </section>
+    <script src="../public/js/statistics.js"></script>
+  </body>
 </html>

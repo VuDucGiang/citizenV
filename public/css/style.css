@@ -1,6 +1,6 @@
 .navbar li::after {
   height: 4px;
-  background: #00CED1;
+  background: rgb(24, 163, 197);
 }
 
 .navbar .noafter::after {
