@@ -63,7 +63,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
 
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='1' ) echo 'class="active"' ?> >
+            <li <?php if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page']=='1')) echo 'class="active"' ?> >
               <a href="?page=1">Nhập liệu</a>
             </li>
 
