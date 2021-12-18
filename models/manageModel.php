@@ -19,9 +19,39 @@
                 $stmt -> bindValue(1, $lenUname); 
                 $stmt -> bindValue(2, "$username%"); 
             }
-            $stmt -> execute();           
+            $stmt -> execute();  
+                    
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
            
+        }
+
+        public function submitAddManager() {
+
+            $don_vi=$_POST['don_vi'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $c_date = $_POST['c_date'];
+            $tien_do = "Chưa hoàn thành";
+            echo $don_vi, $username, $password, $c_date, $tien_do;
+            //Đoạn dưới bị lỗi
+            $stmt = $this -> pdo ->prepare("INSERT INTO quyensd (donVi, username, password, ngayDong, tienDo) 
+                                            VALUES (?, ?, ?, ?, ?);");
+
+            $stmt -> bindValue(1, $don_vi);
+            $stmt -> bindValue(2, $username);
+            $stmt -> bindValue(3, $password);
+            $stmt -> bindValue(4, $c_date);
+            $stmt -> bindValue(5, $tien_do);
+                    
+            $stmt -> execute();
+                    
+            $message = "New records created successfully";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+
+            //$stmt->close();
+            //$submit_pdo->close();
+            
+
         }
     }
 ?>
