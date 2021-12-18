@@ -49,10 +49,13 @@
                   <input
                     class="form-control"
                     name="f_cccd"
-                    placeholder="123456789"
+                    
                     type="text"
+                    placeholder="12345678"
+                    pattern="[0-9]{8}"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninput="setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   />
                 </div>
               </div>
@@ -67,8 +70,10 @@
                     name="f_name"
                     placeholder="Nguyễn Văn A"
                     type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   />
                 </div>
               </div>
@@ -82,10 +87,11 @@
                     class="form-control datepicker"
                     id="datepicker"
                     name="b_date"
-                    placeholder="30/01/1996"
+                    placeholder="30-01-1996"
                     type="text"
+                    readonly            
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   />
                 </div>
                 <div class="col-sm-2 control-label">
@@ -99,7 +105,7 @@
                         type="radio"
                         name="gender"
                         checked
-                        value="Male" /><i
+                        value="Nam" /><i
                         class="fa fa-male"
                         aria-hidden="true"
                       ></i
@@ -110,7 +116,7 @@
                         id="fe-male"
                         type="radio"
                         name="gender"
-                        value="Female" /><i
+                        value="Nữ" /><i
                         class="fa fa-female"
                         aria-hidden="true"
                       ></i
@@ -131,10 +137,13 @@
                     name="que_tinh"
                     style="width: 100%"
                     onchange="add_tinh(this.value);"
+                    pattern=".{0,}"                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Tỉnh/Thành Phố-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -145,10 +154,14 @@
                     name="que_huyen"
                     style="width: 100%"
                     onchange="add_huyen(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Quận/Huyện/Thị Xã-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -164,10 +177,14 @@
                     name="que_xa"
                     style="width: 100%"
                     onchange="add_xa(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Xã/Phường-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -193,11 +210,16 @@
                     name="thuong_tinh"
                     style="width: 100%"
                     onchange="add_tinh(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Tỉnh/Thành Phố-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
+                    <option value="Temp">Temp</option>
                   </select>
                 </div>
                 <div class="col-sm-4 thuong-tru">
@@ -207,10 +229,14 @@
                     name="thuong_huyen"
                     style="width: 100%"
                     onchange="add_huyen(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Quận/Huyện/Thị Xã-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -226,10 +252,14 @@
                     name="thuong_xa"
                     style="width: 100%"
                     onchange="add_xa(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Xã/Phường-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -255,10 +285,14 @@
                     name="tam_tinh"
                     style="width: 100%"
                     onchange="add_tinh(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Tỉnh/Thành Phố-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -269,10 +303,14 @@
                     name="tam_huyen"
                     style="width: 100%"
                     onchange="add_huyen(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Quận/Huyện/Thị Xã-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -288,10 +326,14 @@
                     name="tam_xa"
                     style="width: 100%"
                     onchange="add_xa(this.value);"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   >
                     <option value="">-Xã/Phường-</option>
+                    <option value="Temp">Temp</option>
                     <!-- Data  load from ajax method-->
                   </select>
                 </div>
@@ -317,8 +359,11 @@
                     name="van_hoa"
                     placeholder="Trình độ văn hóa"
                     type="text"
+                    pattern=".{0,}"
+                    
+                    oninput="setCustomValidity('')"
                     required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   />
                 </div>
                 <div class="col-sm-2 control-label">
@@ -350,6 +395,26 @@
                   />
                 </div>
               </div>
+              
+              <!-- Mã địa chỉ -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label class="control-label" for="job">Mã vùng</label>
+                </div>
+                <div class="col-sm-4 input-column">
+                  <input
+                    class="form-control"
+                    id="ma_vung"
+                    name="ma_vung"
+                    placeholder="12345678"
+                    pattern="[0-9]{8}"
+                    required
+                    oninput="setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                    type="text"
+                  />
+                </div>
+              </div>
 
               <!-- Submit/Reset -->
               <div class="form-group">
@@ -360,6 +425,7 @@
                   <button
                     class="btn btn-default btn-block submit-button"
                     type="submit"
+                    name="submit_but"
                     id="submit-button"
                   >
                     Submit
