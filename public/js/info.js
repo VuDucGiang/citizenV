@@ -20,6 +20,8 @@ $(document).ready(function () {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
 
+    
+    $('#myModal #cccd_old').val($("#cccd-" + get_row).text());
     $('#myModal #cccd').val($("#cccd-" + get_row).text());
     $('#myModal #ten').val($("#ten-" + get_row).text());
     $('#myModal #ngay-sinh').val($("#ngay-sinh-" + get_row).text());
@@ -30,6 +32,7 @@ $(document).ready(function () {
     $('#myModal #ton-giao').val($("#ton-giao-" + get_row).text());
     $('#myModal #job').val($("#nghe-nghiep-" + get_row).text());
     console.log($("#gioi-tinh-" + get_row).html());
+    console.log($("#cccd-" + get_row).html());
     if ($("#gioi-tinh-" + get_row).text() == "Nữ") {
       $("#myModal .female").addClass("active");
       $("#myModal .male").removeClass("active");

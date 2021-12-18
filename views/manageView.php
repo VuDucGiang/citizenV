@@ -7,9 +7,8 @@
     $bytes = file_put_contents("../public/manage.json", $ret);
 
     if(isset($_POST['submitAddManager']))  {
-        try {  
+        try {   
             $ctl -> addManager();
-            
         }
         
         catch(Exception $e) {
