@@ -212,3 +212,10 @@ input[type="search"] {
 #pdf:hover {
   background-color: #dfdede;
 }
+
+.manage-content .btn-default{
+  width: 5.9rem;
+  color: white;
+  background-color: #eb9aab;
+  border: none;
+}
