@@ -1,10 +1,9 @@
 <?php
 
     class ManageModel {
-        //private $pdo;
 
         public function __construct() {
-            require_once('connect.php');
+            require('connect.php');
         }
 
         public function getManager() {
@@ -12,10 +11,10 @@
             $username = (string)$_SESSION["login"]; 
             
             if(strlen($username) == 1) { 
-                $stmt = $this-> pdo ->prepare('SELECT * FROM quyensd WHERE LENGTH(username) = 2');          
+                $stmt = $this-> pdo ->prepare('SELECT * FROM user WHERE LENGTH(username) = 2');          
             } else {
                 $lenUname = strlen($username) + 2;
-                $stmt = $this-> pdo ->prepare('SELECT * FROM quyensd WHERE LENGTH(username) = ? AND username LIKE ?');
+                $stmt = $this-> pdo ->prepare('SELECT * FROM user WHERE LENGTH(username) = ? AND username LIKE ?');
                 $stmt -> bindValue(1, $lenUname); 
                 $stmt -> bindValue(2, "$username%"); 
             }
@@ -30,31 +29,47 @@
             $don_vi=$_POST['don_vi'];
             $username = $_POST['username'];
             $password = $_POST['password'];
-            $c_date = $_POST['c_date'];
             $tien_do = "Chưa hoàn thành";
-            //echo $don_vi, $username, $password, $c_date, $tien_do;
-            //Đoạn dưới bị lỗi
-
-            include('connect.php');
             
-            $stmt = $this -> pdo ->prepare("INSERT INTO quyensd (donVi, username, password, ngayDong, tienDo) 
-                                            VALUES (?, ?, ?, ?, ?);");
+            
+            $stmt = $this -> pdo ->prepare("INSERT INTO user (donVi, username, password, tienDo) 
+                                            VALUES (?, ?, ?, ?);");
 
             $stmt -> bindValue(1, $don_vi);
             $stmt -> bindValue(2, $username);
             $stmt -> bindValue(3, $password);
-            $stmt -> bindValue(4, $c_date);
-            $stmt -> bindValue(5, $tien_do);
+            $stmt -> bindValue(4, $tien_do);
                     
             $stmt -> execute();
                     
             $message = "New records created successfully";
             echo "<script type='text/javascript'>alert('$message');</script>";
 
-            //$stmt->close();
-            //$submit_pdo->close();
+        }
+
+        public function deleteManager() {
+            echo "anh m đây";
+
+            /*$don_vi=$_POST['don_vi'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $tien_do = "Chưa hoàn thành";
             
+            
+            $stmt = $this -> pdo ->prepare("INSERT INTO user (donVi, username, password, tienDo) 
+                                            VALUES (?, ?, ?, ?);");
+
+            $stmt -> bindValue(1, $don_vi);
+            $stmt -> bindValue(2, $username);
+            $stmt -> bindValue(3, $password);
+            $stmt -> bindValue(4, $tien_do);
+                    
+            $stmt -> execute();
+                    
+            $message = "New records delete successfully";
+            echo "<script type='text/javascript'>alert('$message');</script>";*/
 
         }
+
     }
 ?>

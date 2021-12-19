@@ -16,4 +16,15 @@
         }
     
     }
+
+    if(isset($_POST['deleteManager']))  {
+        try {   
+            $ctl -> deleteManager();
+        }
+        
+        catch(Exception $e) {
+            $error_msg = $e->getMessage();
+        }
+    
+    }
 ?>
