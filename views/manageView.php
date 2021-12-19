@@ -38,4 +38,25 @@
         }
     
     }
+
+    if(isset($_POST['lock_but']))  {
+        try {   
+            $ctl -> lockManager();
+        }
+        
+        catch(Exception $e) {
+            $error_msg = $e->getMessage();
+        }
+    
+    }
+    if(isset($_POST['date_submit']))  {
+        try {   
+            $ctl -> openManager();
+        }
+        
+        catch(Exception $e) {
+            $error_msg = $e->getMessage();
+        }
+    
+    }
 ?>
