@@ -65,7 +65,8 @@ $(document).ready(function () {
   $(document).on('click','.btn-primary', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-
+    
+    $('#userEditModal #username_old').val($("#user-" + get_row).text());
     $('#userEditModal #don_vi').val($("#don-vi-" + get_row).text());
     $('#userEditModal #username').val($("#user-" + get_row).text());
     $('#userEditModal #password').val($("#pass-" + get_row).text());
@@ -77,7 +78,8 @@ $(document).ready(function () {
   $(document).on('click','.btn-danger', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-    
+    $('#userDelModal #username_old').val($("#user-" + get_row).text());
+    console.log($("#user-" + get_row).html());
     $('#userDelModal').modal('show');
   });
 

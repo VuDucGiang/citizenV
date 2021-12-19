@@ -46,30 +46,39 @@
             echo "<script type='text/javascript'>alert('$message');</script>";
 
         }
-
-        public function deleteManager() {
-            echo "anh m đây";
-
-            /*$don_vi=$_POST['don_vi'];
+        
+        public function editManager() {
+            $don_vi=$username=$username_old=$password=$tien_do="";
+            
+            $don_vi=$_POST['don_vi'];
             $username = $_POST['username'];
+            $username_old = $_POST['username_old'];
             $password = $_POST['password'];
-            $tien_do = "Chưa hoàn thành";
             
-            
-            $stmt = $this -> pdo ->prepare("INSERT INTO user (donVi, username, password, tienDo) 
-                                            VALUES (?, ?, ?, ?);");
+
+            $stmt = $this -> pdo ->prepare("UPDATE user SET donVi = ?,
+             username = ?, password = ? WHERE username = ? ;");
 
             $stmt -> bindValue(1, $don_vi);
             $stmt -> bindValue(2, $username);
             $stmt -> bindValue(3, $password);
-            $stmt -> bindValue(4, $tien_do);
+            $stmt -> bindValue(4, $username_old);
                     
             $stmt -> execute();
-                    
-            $message = "New records delete successfully";
-            echo "<script type='text/javascript'>alert('$message');</script>";*/
 
+            
+            //echo "<script type='text/javascript'>alert('dmm');</script>";
         }
 
-    }
+        public function deleteManager() {
+            $username_old = "";
+            $username_old = $_POST['username_old'];
+            $stmt = $this -> pdo ->prepare("DELETE FROM user WHERE username = ? ;");
+            $stmt -> bindValue(1, $username_old);
+            $stmt -> execute();
+            echo "<script type='text/javascript'>alert('dmm');</script>";
+        }
+        }
+
+    
 ?>

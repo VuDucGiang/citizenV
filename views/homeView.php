@@ -17,8 +17,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CitizenV</title>
-  <link rel="icon" href="../public/images/favicon.ico">
-  <link rel="shortcut icon" href="../public/images/favicon.ico" />
 
   <!-- Bootstrap + JQuery CSS -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
