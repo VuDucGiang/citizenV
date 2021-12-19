@@ -76,8 +76,33 @@
             $stmt = $this -> pdo ->prepare("DELETE FROM user WHERE username = ? ;");
             $stmt -> bindValue(1, $username_old);
             $stmt -> execute();
-            echo "<script type='text/javascript'>alert('dmm');</script>";
+            
         }
+        
+        public function openManager() {
+            $username_old =$open_date=$close_date= "";
+            $username_old = $_POST['username_old'];
+            $open_date = $_POST['open_date'];
+            $close_date = $_POST['close_date'];
+            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 1,ngayMo = ?,ngayDong = ? WHERE username = ? ;");
+            $stmt -> bindValue(1, $open_date);
+            $stmt -> bindValue(2, $close_date);
+            $stmt -> bindValue(3, $username_old);
+            $stmt -> execute();
+
+            
+        }
+        
+        public function lockManager() {   
+            $username_old = "";
+            $username_old = $_POST['username_old'];
+            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 0,ngayMo = NULL,ngayDong = NULL WHERE username = ? ;");
+            $stmt -> bindValue(1, $username_old);
+            $stmt -> execute();
+            
+            
+        }
+
         }
 
     

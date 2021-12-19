@@ -37,28 +37,22 @@ $(document).ready(function () {
   // click nút mở quyền
   
   $(document).on('click','.btn-default', function(event) {
-    // get_id = $(this).attr('id');
-    // get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-    // $(this).hide();
-    // $('#close-' + get_row).removeClass('hidden');
-    // o_date = $("#o-date-" + get_row).text();
-    // c_date = $("#c-date-" + get_row).text();
-    // if (o_date != "null") {
-    //   $('#dateModal #open_date').val(o_date);
-    // }
-    // if (c_date != "null") {
-    //   $('#dateModal #close_date').val(c_date);
-    // }
+     get_id = $(this).attr('id');
+     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+ 
+     $('#dateModal #username_old').val($("#user-" + get_row).text());
+     
 
     $('#dateModal').modal('show');
   });
 
   //click nut đóng quyền
   $(document).on('click','.btn-info', function(event) {
-    // get_id = $(this).attr('id');
-    // get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-    // $(this).addClass('hidden');
-    // $('#open-' + get_row).show();
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    $('#userLockModal #username_old').val($("#user-" + get_row).text());
+    console.log($("#user-" + get_row).html());
+    $('#userLockModal').modal('show');
   });
 
   // click nút sửa

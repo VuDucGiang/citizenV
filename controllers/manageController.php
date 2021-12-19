@@ -38,4 +38,19 @@
                 $model -> deleteManager();  
                 
             }
+
+            public function openManager() { 
+
+                $model = new ManageModel();
+                $model -> openManager();  
+                
+            }
+
+            public function lockManager() { 
+
+                $model = new ManageModel();
+                $model -> lockManager();  
+                
+            }
+
         }
