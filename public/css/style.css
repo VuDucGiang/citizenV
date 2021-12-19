@@ -201,9 +201,12 @@ input[type="search"] {
 .del-edit-header {
   width: 130px;
 }
+#pdf img {
+  height: 50px;
+}
 
-#pdf {
-  height: 60px; 
+#pdf{
+  width: fit-content; 
 }
 
 #pdf:hover {

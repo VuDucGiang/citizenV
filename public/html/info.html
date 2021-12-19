@@ -387,8 +387,6 @@
                   name="chon_tinh"
                   style="width: 100%"
                   onchange="add_tinh(this.value);"
-                  required
-                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
                 >
                   <option value="">-Tỉnh/Thành Phố-</option>
                   <!-- Data  load from ajax method-->
@@ -401,8 +399,6 @@
                   name="chon_huyen"
                   style="width: 100%"
                   onchange="add_huyen(this.value);"
-                  required
-                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
                 >
                   <option value="">-Quận/Huyện/Thị Xã-</option>
                   <!-- Data  load from ajax method-->
@@ -415,8 +411,6 @@
                   name="chon_xa"
                   style="width: 100%"
                   onchange="add_xa(this.value);"
-                  required
-                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
                 >
                   <option value="">-Xã/Phường-</option>
                   <!-- Data  load from ajax method-->
@@ -424,7 +418,7 @@
               </div>
               <div class="col-sm-2">
                 <button
-                  class="btn btn-default btn-block submit-button"
+                  class="btn btn-block submit-button"
                   type="submit"
                   id="submit-button"
                 >
