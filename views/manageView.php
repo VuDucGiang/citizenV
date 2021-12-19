@@ -17,7 +17,7 @@
     
     }
 
-    if(isset($_POST['deleteManager']))  {
+    if(isset($_POST['']))  {
         try {   
             $ctl -> deleteManager();
         }

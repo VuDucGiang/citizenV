@@ -6,33 +6,119 @@
 
   <body>
     <!--Div that will hold the pie chart-->
-    <section class="after-navbar">
+    <section>
+      <style scoped>
+        .header-container {
+          padding-top: 55px;
+          padding-bottom: 5px;
+          width: 100%;
+          /* margin-bottom: 0px; */
+          margin-left: auto;
+          margin-right: auto;
+          background-color: white;
+          z-index: 1;
+          position: fixed;
+        }
+      </style>
+      <div class="header-container">
+        <div class="row col-sm-offset-1 col-sm-10">
+          <form class="custom-form select-form" method="post">
+            <div class="form-group">
+              <div class="col-sm-offset-1 col-sm-3 tam-tru">
+                <select
+                  class="form-control"
+                  id="chon_tinh"
+                  name="chon_tinh"
+                  style="width: 100%"
+                  onchange="add_tinh(this.value);"
+                  required
+                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                >
+                  <option value="">-Tỉnh/Thành Phố-</option>
+                  <!-- Data  load from ajax method-->
+                </select>
+              </div>
+              <div class="col-sm-3 tam-tru">
+                <select
+                  class="form-control"
+                  id="chon_huyen"
+                  name="chon_huyen"
+                  style="width: 100%"
+                  onchange="add_huyen(this.value);"
+                  required
+                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                >
+                  <option value="">-Quận/Huyện/Thị Xã-</option>
+                  <!-- Data  load from ajax method-->
+                </select>
+              </div>
+              <div class="col-sm-3 tam-tru">
+                <select
+                  class="form-control"
+                  id="chon_xa"
+                  name="chon_xa"
+                  style="width: 100%"
+                  onchange="add_xa(this.value);"
+                  required
+                  oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                >
+                  <option value="">-Xã/Phường-</option>
+                  <!-- Data  load from ajax method-->
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <button
+                  class="btn btn-default btn-block submit-button"
+                  type="submit"
+                  id="submit-button"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="content">
       <style scoped>
         div.container-fluid {
           position: relative;
-          top: 60px;
+          top: 120px;
           margin-left: 2rem;
+        }
+        @media screen and (max-width : 765px) {
+          div.container-fluid {
+          top: 230px;
+        }
         }
       </style>
       <div class="container-fluid">
+        <p>Đưa chuột vào biểu đồ để xem số liệu.</p>
         <div class="row">
-          <label class="col-sm-12 col-md-4 control-label">1. Giới tính</label>
+          <div class="col-md-4">
+            <label class="col-xs-12 control-label">1. Giới tính</label>
+          </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 col-md-1 col-xs-12 gioi-tinh-so-lieu-1"></div>
-          <div id="chart_gender_1"  class="col-sm-12 col-md-3 col-xs-12" style="width: 400px; height: 250px;"></div>
-          <div class="col-sm-12 col-md-2 col-xs-12 gioi-tinh-so-lieu-2"></div>
-          <div id="chart_gender_2"  class="col-sm-12 col-md-6 col-xs-12" style="width: 500px; height: 220px;"></div>
+          <!-- <div class="col-sm-12 col-md-1 col-xs-12 gioi-tinh-so-lieu-1"></div> -->
+          <div id="chart_gender_1"  class="col-md-offset-1 col-md-5 col-sm-12 col-xs-12" style="width: 450px; height: 250px;"></div>
+          <!-- <div class="col-sm-12 col-md-2 col-xs-12 gioi-tinh-so-lieu-2"></div> -->
+          <div id="chart_gender_2"  class="col-md-6 col-sm-12 col-xs-12" style="width: 550px; height: 220px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">2. Tôn giáo</label>
+          <div id="chart_tongiao" class="col-sm-12" style="width: 450px; height: 250px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">3. Nghề nghiệp</label>
+          <div id="chart_job" class="col-sm-12" style="width: 450px; height: 250px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">4. Trình độ văn hóa</label>
+          <div id="chart_vanhoa" class="col-sm-12" style="width: 450px; height: 250px;"></div>
         </div>
         <div class="row">
-          <label class="col-sm-12 col-md-3 control-label">2. Nghề nghiệp</label>
-          <label class="col-sm-12 col-md-4 control-label">3. Tôn giáo</label>
-          <label class="col-sm-12 col-md-5 control-label">4. Trình độ văn hóa</label>
-        </div>
-        <div class="row">
-          <div id="chart_job" class="col-sm-12 col-md-4 col-xs-12" style="width: 450px; height: 250px;"></div>
-          <div id="chart_tongiao" class="col-sm-12 col-md-4 col-xs-12" style="width: 450px; height: 250px;"></div>
-          <div id="chart_vanhoa" class="col-sm-12 col-md-4 col-xs-12" style="width: 450px; height: 250px;"></div>
         </div>
       </div>
     </section>
