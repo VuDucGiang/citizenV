@@ -19,7 +19,7 @@ $(document).ready(function () {
   $(document).on('click','.btn-primary', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-
+    console.log(get_row);
     
     $('#myModal #cccd_old').val($("#cccd-" + get_row).text());
     $('#myModal #cccd').val($("#cccd-" + get_row).text());
@@ -33,6 +33,7 @@ $(document).ready(function () {
     $('#myModal #job').val($("#nghe-nghiep-" + get_row).text());
     console.log($("#gioi-tinh-" + get_row).html());
     console.log($("#cccd-" + get_row).html());
+    console.log($("#cccd-" + get_row).html());
     if ($("#gioi-tinh-" + get_row).text() == "Nữ") {
       $("#myModal .female").addClass("active");
       $("#myModal .male").removeClass("active");
@@ -42,6 +43,15 @@ $(document).ready(function () {
     }
 
     $('#myModal').modal('show');
+  });
+
+  $(document).on('click','.btn-danger', function(event) {
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    
+    $('#myModal_del #cccd_old').val($("#cccd-" + get_row).text());
+
+    $('#myModal_del').modal('show');
   });
 
   $(function () {
