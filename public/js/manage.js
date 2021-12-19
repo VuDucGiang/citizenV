@@ -27,23 +27,28 @@ $(document).ready(function () {
     }
   });
 
-  // click nút mở
+  // click nút mở quyền
   $(document).on('click','.btn-default', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
     $(this).hide();
     $('#close-' + get_row).removeClass('hidden');
 
+    $('#dateModal').modal('show');
 
-  })
+    // khi submit ngày đóng/mở
+    $(document).on('click','.btn-success', function(event) {
 
-  //click nut dong
+    });
+  });
+
+  //click nut đóng quyền
   $(document).on('click','.btn-info', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
     $(this).addClass('hidden');
     $('#open-' + get_row).show();
-  })
+  });
 
   // click nút sửa
   $(document).on('click','.btn-primary', function(event) {

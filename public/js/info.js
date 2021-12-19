@@ -44,6 +44,7 @@ $(document).ready(function () {
     $('#infoEditModal').modal('show');
   });
 
+  // click nút xóa info
   $(document).on('click','.btn-danger', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
