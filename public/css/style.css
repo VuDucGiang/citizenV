@@ -219,8 +219,3 @@ input[type="search"] {
   background-color: #eb9aab;
   border: none;
 }
-
-.manage-content .btn-default:hover{
-  background-color: #e26e87;
-  border: #666;
-}
