@@ -5,10 +5,10 @@
 
     <div
       class="modal fade"
-      id="myModal_del"
+      id="infoDelModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="myModalLabel"
+      aria-labelledby="infoDelModalLabel"
       aria-hidden="true"
     >
       <style scoped>
@@ -18,15 +18,15 @@
           overflow-y: auto;
           overflow-x: auto;
           width: auto;
-          min-width: 300px;
-          max-width: 600px;
+          min-width: fit-content;
+          max-width: fit-content;
         }
         
       </style>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title" id="myModalLabel">Bạn chắc chắn muốn xóa dữ liệu này?</h3>
+            <h3 class="modal-title" id="infoDelModalLabel">Bạn chắc chắn muốn xóa dữ liệu này?</h3>
             <button
               type="button"
               class="close"
@@ -57,7 +57,6 @@
                 />
               </div>
             </div>
-              
 
               <!-- Submit/Reset -->
               <div class="form-group">
@@ -79,48 +78,24 @@
                   </button>
                 </div>
               </div>
-              <!-- Thông báo submit thành công/thất bại -->
-              <p id="submit-msg"></p>
             </form>
           </div>
-          <!-- <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div> -->
         </div>
       </div>
     </div>
 
     <div
       class="modal fade"
-      id="myModal"
+      id="infoEditModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="myModalLabel"
+      aria-labelledby="infoEditModalLabel"
       aria-hidden="true"
     >
-      <style scoped>
-        .modal-dialog {
-          position: relative;
-          /* display: table; /* This is important */
-          overflow-y: auto;
-          overflow-x: auto;
-          width: auto;
-          min-width: fit-content;
-          max-width: fit-content;
-        }
-        
-      </style>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="myModalLabel">Thông tin cá nhân</h5>
+            <h5 class="modal-title" id="infoEditModalLabel">Thông tin cá nhân</h5>
             <button
               type="button"
               class="close"

@@ -34,7 +34,7 @@ $(document).ready(function () {
     $(this).hide();
     $('#close-' + get_row).removeClass('hidden');
 
-    
+
   })
 
   //click nut dong
@@ -50,12 +50,19 @@ $(document).ready(function () {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
 
-    $('#userModal #don-vi').val($("#don-vi-" + get_row).text());
-    $('#userModal #user').val($("#user-" + get_row).text());
-    $('#userModal #pass').val($("#pass-" + get_row).text());
-    $('#userModal #c-date').val($("#c-date-" + get_row).text());
+    $('#userEditModal #don_vi').val($("#don-vi-" + get_row).text());
+    $('#userEditModal #username').val($("#user-" + get_row).text());
+    $('#userEditModal #password').val($("#pass-" + get_row).text());
 
-    $('#userModal').modal('show');
+    $('#userEditModal').modal('show');
+  });
+
+  //click nút xóa
+  $(document).on('click','.btn-danger', function(event) {
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    
+    $('#userDelModal').modal('show');
   });
 
   $(function () {
