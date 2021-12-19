@@ -1,10 +1,12 @@
-  
-$(document).ready(function () {
-  
 
+
+$(document).ready(function () {
+
+  quyen = 0;
   $.getJSON("../public/manage.json", function (ret) {
     if (ret.status == "OK") {
       for (i = 0; i < ret.data.length; i++) {
+        quyen = ret.data[i].quyen;
         $("#table tbody").append(
           "<tr>" +
           "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donVi + "</td>" +
@@ -14,7 +16,7 @@ $(document).ready(function () {
           "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngayDong + "</td>" +
           "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tienDo + "</td>" +
           "<td>" +
-          "<button class='btn btn-default' id=open-" + (i + 1) + ">Mở</button>" +
+          "<button class='btn btn-default hidden' id=open-" + (i + 1) + ">Mở</button>" +
           "<button class='btn btn-info hidden' id=close-" + (i + 1) + ">Khóa</button>" +
           "</td>" +
           "<td>" +
@@ -23,31 +25,40 @@ $(document).ready(function () {
           "</td>" +
           + "</tr>"
         )
+        if(quyen == 1) {
+          $('#close-'+(i + 1)).removeClass("hidden");
+        } else {
+          $('#open-'+(i + 1)).removeClass("hidden");
+        }
       }
     }
   });
 
   // click nút mở quyền
+  
   $(document).on('click','.btn-default', function(event) {
-    get_id = $(this).attr('id');
-    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-    $(this).hide();
-    $('#close-' + get_row).removeClass('hidden');
+    // get_id = $(this).attr('id');
+    // get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    // $(this).hide();
+    // $('#close-' + get_row).removeClass('hidden');
+    // o_date = $("#o-date-" + get_row).text();
+    // c_date = $("#c-date-" + get_row).text();
+    // if (o_date != "null") {
+    //   $('#dateModal #open_date').val(o_date);
+    // }
+    // if (c_date != "null") {
+    //   $('#dateModal #close_date').val(c_date);
+    // }
 
     $('#dateModal').modal('show');
-
-    // khi submit ngày đóng/mở
-    $(document).on('click','.btn-success', function(event) {
-
-    });
   });
 
   //click nut đóng quyền
   $(document).on('click','.btn-info', function(event) {
-    get_id = $(this).attr('id');
-    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
-    $(this).addClass('hidden');
-    $('#open-' + get_row).show();
+    // get_id = $(this).attr('id');
+    // get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    // $(this).addClass('hidden');
+    // $('#open-' + get_row).show();
   });
 
   // click nút sửa
