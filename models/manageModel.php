@@ -32,8 +32,9 @@
             $password = $_POST['password'];
             $c_date = $_POST['c_date'];
             $tien_do = "Chưa hoàn thành";
-            echo $don_vi, $username, $password, $c_date, $tien_do;
+            //echo $don_vi, $username, $password, $c_date, $tien_do;
             //Đoạn dưới bị lỗi
+            include('connect.php');
             $stmt = $this -> pdo ->prepare("INSERT INTO quyensd (donVi, username, password, ngayDong, tienDo) 
                                             VALUES (?, ?, ?, ?, ?);");
 

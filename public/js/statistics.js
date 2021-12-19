@@ -8,7 +8,6 @@ fifties = 0;
 sixties = 0;
 seventies = 0;
 eighties = 0;
-nineties = 0;
 
 f_tens = 0
 f_twenties = 0;
@@ -18,7 +17,6 @@ f_fifties = 0;
 f_sixties = 0;
 f_seventies = 0;
 f_eighties = 0;
-f_nineties = 0;
 
 const map1 = new Map();
 const map2 = new Map();
@@ -49,9 +47,7 @@ $(document).ready(function () {
             seventies++;
           } else if (age > 79 && age < 90) {
             eighties++;
-          } else if (age > 79 && age < 90) {
-            nineties++;
-          } 
+          }
         } else {
           if(age > 9 && age < 20) {
             f_tens++;
@@ -69,8 +65,6 @@ $(document).ready(function () {
             f_seventies++;
           } else if (age > 79 && age < 90) {
             f_eighties++;
-          } else if (age > 79 && age < 90) {
-            f_nineties++;
           }
         }
 
@@ -99,24 +93,24 @@ $(document).ready(function () {
       }
       female_count = tong-male_count;
 
-      // $('.gioi-tinh-so-lieu-1').append(
-      //   '<p class="text-left"><br>Tổng số dân là ' + tong + ', trong đó gồm có: ' + 
-      //   male_count + ' nam và ' + 
-      //   female_count + ' nữ.' +
-      //   '</p>'
-      // );
-      // $('.gioi-tinh-so-lieu-2').append(
-      //   '<p class="text-left">' +
-      //     '<br>Số nam/nữ 10-20 tuổi: ' + tens + '/' + f_tens + 
-      //     '<br>Số nam/nữ 20-30 tuổi: ' + twenties + '/' + f_twenties + 
-      //     '<br>Số nam/nữ 30-40 tuổi: ' + thirties + '/' + f_thirties + 
-      //     '<br>Số nam/nữ 40-50 tuổi: ' + forties + '/' + f_forties + 
-      //     '<br>Số nam/nữ 50-60 tuổi: ' + fifties + '/' + f_fifties + 
-      //     '<br>Số nam/nữ 60-70 tuổi: ' + sixties + '/' + f_sixties + 
-      //     '<br>Số nam/nữ 70-80 tuổi: ' + seventies + '/' + f_seventies + 
-      //     '<br>Số nam/nữ 80-90 tuổi: ' + eighties + '/' + f_eighties + 
-      //   '</p>'
-      // );
+      $('.gioi-tinh-so-lieu-1').append(
+        '<p class="text-left"><br>Tổng số dân là ' + tong + ', trong đó gồm có: ' + 
+        male_count + ' nam và ' + 
+        female_count + ' nữ.' +
+        '</p>'
+      );
+      $('.gioi-tinh-so-lieu-2').append(
+        '<p class="text-left">' +
+          '<br>Số nam/nữ 10-20 tuổi: ' + tens + '/' + f_tens + 
+          '<br>Số nam/nữ 20-30 tuổi: ' + twenties + '/' + f_twenties + 
+          '<br>Số nam/nữ 30-40 tuổi: ' + thirties + '/' + f_thirties + 
+          '<br>Số nam/nữ 40-50 tuổi: ' + forties + '/' + f_forties + 
+          '<br>Số nam/nữ 50-60 tuổi: ' + fifties + '/' + f_fifties + 
+          '<br>Số nam/nữ 60-70 tuổi: ' + sixties + '/' + f_sixties + 
+          '<br>Số nam/nữ 70-80 tuổi: ' + seventies + '/' + f_seventies + 
+          '<br>Số nam/nữ 80-90 tuổi: ' + eighties + '/' + f_eighties + 
+        '</p>'
+      );
     }
   });
 });
@@ -163,8 +157,7 @@ function drawGenderAgeGroupChart() {
     ['50-60', fifties, f_fifties],
     ['60-70', sixties, f_sixties],
     ['70-80', seventies, f_seventies],
-    ['80-90', eighties, f_eighties],
-    ['90-100', nineties, f_nineties]
+    ['80-90', eighties, f_eighties]
   ]);
 
   var options = {
