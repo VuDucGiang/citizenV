@@ -23,7 +23,7 @@
   <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="../assets/css/jquery-ui.css" rel="stylesheet">
   <link href="../assets/css/jquery.dataTables.min.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
+  <!-- <link href="../assets/css/style.css" rel="stylesheet"> -->
   <link href="../assets/css/responsive.css" rel="stylesheet">
 
   <!-- Bootstrap + JQuery JS -->
