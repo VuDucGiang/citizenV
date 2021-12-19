@@ -17,9 +17,20 @@
     
     }
 
-    if(isset($_POST['']))  {
+    if(isset($_POST['del_but']))  {
         try {   
             $ctl -> deleteManager();
+        }
+        
+        catch(Exception $e) {
+            $error_msg = $e->getMessage();
+        }
+    
+    }
+
+    if(isset($_POST['edit_but']))  {
+        try {   
+            $ctl -> editManager();
         }
         
         catch(Exception $e) {
