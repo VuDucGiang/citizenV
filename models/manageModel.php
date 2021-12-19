@@ -12,10 +12,10 @@
             $username = (string)$_SESSION["login"]; 
             
             if(strlen($username) == 1) { 
-                $stmt = $this-> pdo ->prepare('SELECT * FROM quyensd WHERE LENGTH(username) = 2');          
+                $stmt = $this-> pdo ->prepare('SELECT * FROM user WHERE LENGTH(username) = 2');          
             } else {
                 $lenUname = strlen($username) + 2;
-                $stmt = $this-> pdo ->prepare('SELECT * FROM quyensd WHERE LENGTH(username) = ? AND username LIKE ?');
+                $stmt = $this-> pdo ->prepare('SELECT * FROM user WHERE LENGTH(username) = ? AND username LIKE ?');
                 $stmt -> bindValue(1, $lenUname); 
                 $stmt -> bindValue(2, "$username%"); 
             }

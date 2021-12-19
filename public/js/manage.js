@@ -1,5 +1,7 @@
   
 $(document).ready(function () {
+  
+
   $.getJSON("../public/manage.json", function (ret) {
     if (ret.status == "OK") {
       for (i = 0; i < ret.data.length; i++) {
@@ -8,8 +10,13 @@ $(document).ready(function () {
           "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donVi + "</td>" +
           "<td id=user-" + (i + 1) + ">" + ret.data[i].username + "</td>" +
           "<td id=pass-" + (i + 1) + ">" + ret.data[i].password + "</td>" +
+          "<td id=o-date-" + (i + 1) + ">" + ret.data[i].ngayMo + "</td>" +
           "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngayDong + "</td>" +
           "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tienDo + "</td>" +
+          "<td>" +
+          "<button class='btn btn-default' id=open-" + (i + 1) + ">Mở</button>" +
+          "<button class='btn btn-info hidden' id=close-" + (i + 1) + ">Khóa</button>" +
+          "</td>" +
           "<td>" +
           "<button class='btn btn-primary' id=edit-" + (i + 1) + ">Sửa</button>" +
           "<button class='btn btn-danger' id=del-" + (i + 1) + ">Xóa</button>" +
@@ -20,16 +27,35 @@ $(document).ready(function () {
     }
   });
 
+  // click nút mở
+  $(document).on('click','.btn-default', function(event) {
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    $(this).hide();
+    $('#close-' + get_row).removeClass('hidden');
+
+    
+  })
+
+  //click nut dong
+  $(document).on('click','.btn-info', function(event) {
+    get_id = $(this).attr('id');
+    get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
+    $(this).addClass('hidden');
+    $('#open-' + get_row).show();
+  })
+
+  // click nút sửa
   $(document).on('click','.btn-primary', function(event) {
     get_id = $(this).attr('id');
     get_row = get_id.split('-')[1]; //lấy row bằng số sau dấu -
 
-    $('#myModal #don-vi').val($("#don-vi-" + get_row).text());
-    $('#myModal #user').val($("#user-" + get_row).text());
-    $('#myModal #pass').val($("#pass-" + get_row).text());
-    $('#myModal #c-date').val($("#c-date-" + get_row).text());
+    $('#userModal #don-vi').val($("#don-vi-" + get_row).text());
+    $('#userModal #user').val($("#user-" + get_row).text());
+    $('#userModal #pass').val($("#pass-" + get_row).text());
+    $('#userModal #c-date').val($("#c-date-" + get_row).text());
 
-    $('#myModal').modal('show');
+    $('#userModal').modal('show');
   });
 
   $(function () {

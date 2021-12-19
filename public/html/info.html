@@ -17,8 +17,8 @@
           overflow-y: auto;
           overflow-x: auto;
           width: auto;
-          min-width: 300px;
-          max-width: 900px;
+          min-width: fit-content;
+          max-width: fit-content;
         }
         
       </style>
@@ -44,7 +44,7 @@
             >
               <!-- Số CMND/CCCD cũ -->
             <div class="form-group" style="display: none;">
-              <div class="col-sm-4 control-label">
+              <div class="col-sm-3 control-label">
                 <label for="name-input-field">Số CMND/CCCD</label>
               </div>
               <div class="col-sm-8 input-column">
@@ -59,7 +59,7 @@
               
               <!-- Số CMND/CCCD -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label for="name-input-field">Số CMND/CCCD</label>
                 </div>
                 <div class="col-sm-8 input-column">
@@ -77,7 +77,7 @@
               </div>
               <!-- Họ tên -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label for="name-input-field">Họ và tên</label>
                 </div>
                 <div class="col-sm-8 input-column">
@@ -95,7 +95,7 @@
               </div>
               <!-- Ngày sinh, giới tính -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label for="datepicker">Ngày sinh</label>
                 </div>
                 <div class="col-sm-3 input-column">
@@ -142,7 +142,7 @@
               </div>
               <!-- Quê quán -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label>Quê quán</label>
                 </div>
                 <div class="col-sm-8 input-column que-quan">
@@ -160,7 +160,7 @@
               </div>
               <!-- Địa chỉ thường trú -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label>Địa chỉ thường trú</label>
                 </div>
                 <div class="col-sm-8 input-column thuong-tru">
@@ -178,7 +178,7 @@
               </div>
               <!-- Địa chỉ tạm trú -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label>Địa chỉ tạm trú</label>
                 </div>
                 <div class="col-sm-8 input-column">
@@ -196,7 +196,7 @@
               </div>
               <!-- Văn hóa, tôn giáo -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label for="van_hoa">Trình độ văn hóa</label>
                 </div>
                 <div class="col-sm-3 input-column">
@@ -228,7 +228,7 @@
 
               <!-- Nghề nghiệp -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label class="control-label" for="job">Nghề nghiệp</label>
                 </div>
                 <div class="col-sm-8 input-column">
@@ -239,14 +239,11 @@
                     oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')" />
                 </div>
               </div>
-
-              
-
-              
+             
 
               <!-- Submit/Reset -->
               <div class="form-group">
-                <div class="col-sm-4 control-label">
+                <div class="col-sm-3 control-label">
                   <label class="control-label"></label>
                 </div>
                 <div class="col-sm-4">
@@ -377,8 +374,8 @@
         }
         @media only screen and (max-width : 765px) {
           #table-content {
-          top: 250px;
-        }
+            top: 250px;
+          }
         }
       </style>
       <div class="container-fluid">
