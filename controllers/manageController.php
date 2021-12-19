@@ -24,4 +24,11 @@
                 $model -> submitAddManager();  
                 
             }
+
+            public function deleteManager() { 
+
+                $model = new ManageModel();
+                $model -> deleteManager();  
+                
+            }
         }
