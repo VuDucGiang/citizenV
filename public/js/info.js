@@ -3,7 +3,33 @@
 // chưa xử lý event, 
 
 
+
+$(function() {
+  if (localStorage.getItem('chon_tinh')) {
+      $("#chon_tinh option").eq(localStorage.getItem('chon_tinh')).prop('selected', true);
+  }
+
+  $("#chon_tinh").on('change', function() {
+      localStorage.setItem('chon_tinh', $('option:selected', this).index());
+  });
+});
+
+$(function() {
+  if (localStorage.getItem('chon_huyen')) {
+      $("#chon_huyen option").eq(localStorage.getItem('chon_huyen')).prop('selected', true);
+  }
+
+  $("#chon_huyen").on('change', function() {
+      localStorage.setItem('chon_huyen', $('option:selected', this).index());
+  });
+});
+
+
+
+
 $(document).ready(function () {
+
+
   $("#search").keyup(function () {
     _this = this;
     // Show only matching TR, hide rest of them
