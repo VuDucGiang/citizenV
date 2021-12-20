@@ -48,10 +48,12 @@
         }
     }
     if(isset($_POST['maThanhPho'])){
-        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
+
 
         $maThanhPho = $_POST['maThanhPho'];
-        $output = '<option>--Chọn quận/huyện--</option>';
+        $output = '<option>-Quận/Huyện/Thị Xã-</option>';
         $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE maThanhPho LIKE ?'); 
         $stmt -> bindValue(1, $maThanhPho);
         $stmt -> execute();  
@@ -63,10 +65,11 @@
     }
 
     if(isset($_POST['maQuan'])){
-        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
 
         $maQuan = $_POST['maQuan'];
-        $output = '<option>--Chọn xã/phường--</option>';
+        $output = '<option>-Xã/Phường-</option>';
         $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
         $stmt -> bindValue(1, $maQuan);
         $stmt -> execute();  
