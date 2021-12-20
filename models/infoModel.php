@@ -4,7 +4,7 @@
         private $pdo;
 
         public function __construct() {
-            require_once('connect.php');
+            require('connect.php');
         }
 
         public function getInfo() {
@@ -19,6 +19,33 @@
             $stmt -> execute();           
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
            
+        }
+
+        public function getThanhPho($username) {
+            $maThanhPho = (string)$username;
+            //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username
+            $maThanhPho = substr($maThanhPho, 0, 2);
+            if($maThanhPho === "1") {
+                $stmt = $this-> pdo ->prepare('SELECT ten FROM thanhpho'); 
+            } else {
+                $stmt = $this-> pdo ->prepare('SELECT ten FROM thanhpho WHERE ma LIKE ?');
+                $stmt -> bindValue(1, $maThanhPho);
+            }
+            
+            $stmt -> execute();           
+			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getQuan() {
+            $stmt = $this-> pdo ->prepare('SELECT ten FROM quan'); 
+            $stmt -> execute();           
+			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getPhuong() {
+            $stmt = $this-> pdo ->prepare('SELECT ten FROM phuong'); 
+            $stmt -> execute();           
+			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
 
         
