@@ -17,4 +17,31 @@
                 return json_encode($arr, JSON_UNESCAPED_UNICODE);    
                 
             }
+        
+            public function getThanhpho($username) { 
+
+                $model = new InfoModel();
+                $result = $model -> getThanhPho($username);
+                
+                return $result;   
+                
+            }
+
+            public function getQuan() { 
+
+                $model = new InfoModel();
+                $result = $model -> getQuan();
+                
+                return $result;   
+                
+            }
+
+            public function getPhuong() { 
+
+                $model = new InfoModel();
+                $result = $model -> getPhuong();
+                
+                return $result;   
+                
+            }
         }
