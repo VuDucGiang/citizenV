@@ -1,7 +1,5 @@
 <?php
-    
     class InfoModel {
-        private $pdo;
 
         public function __construct() {
             require('connect.php');
@@ -26,9 +24,9 @@
             //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username
             $maThanhPho = substr($maThanhPho, 0, 2);
             if($maThanhPho === "1") {
-                $stmt = $this-> pdo ->prepare('SELECT ten FROM thanhpho'); 
+                $stmt = $this-> pdo ->prepare('SELECT ma, ten FROM thanhpho'); 
             } else {
-                $stmt = $this-> pdo ->prepare('SELECT ten FROM thanhpho WHERE ma LIKE ?');
+                $stmt = $this-> pdo ->prepare('SELECT ma, ten FROM thanhpho WHERE ma LIKE ?');
                 $stmt -> bindValue(1, $maThanhPho);
             }
             
@@ -36,8 +34,9 @@
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function getQuan() {
-            $stmt = $this-> pdo ->prepare('SELECT ten FROM quan'); 
+        public function getQuan($maThanhPho) {
+            $stmt = $this-> pdo ->prepare('SELECT ten FROM quan WHERE maThanhPho LIKE ?'); 
+            $stmt -> bindValue(1, $maThanhPho);
             $stmt -> execute();           
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
@@ -47,7 +46,36 @@
             $stmt -> execute();           
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
-
-        
     }
+    if(isset($_POST['maThanhPho'])){
+        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+
+        $maThanhPho = $_POST['maThanhPho'];
+        $output = '<option>--Chọn quận/huyện--</option>';
+        $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE maThanhPho LIKE ?'); 
+        $stmt -> bindValue(1, $maThanhPho);
+        $stmt -> execute();  
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        foreach($result as $op) {
+            $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
+        }
+        echo $output;
+    }
+
+    if(isset($_POST['maQuan'])){
+        $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
+
+        $maQuan = $_POST['maQuan'];
+        $output = '<option>--Chọn xã/phường--</option>';
+        $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
+        $stmt -> bindValue(1, $maQuan);
+        $stmt -> execute();  
+        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        foreach($result as $op) {
+            $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
+        }
+        echo $output;
+    }
+  
+    
 ?>

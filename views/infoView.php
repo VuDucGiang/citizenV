@@ -11,9 +11,10 @@
     $ctl2 -> proc();
     $ctl3 = new DeleteController();
     $ctl3 -> proc();
+    
 ?>
 <html>
-<section class="navbar-after">
+  <section class="navbar-after">
       <style scoped>
         .header-container {
           padding-top: 60px;
@@ -47,17 +48,17 @@
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-3 tam-tru">
                 <select
-                  class="form-control"
+                  class="form-control thanh_pho"
                   id="chon_tinh"
                   name="chon_tinh"
                   style="width: 100%"
-                  onchange="add_tinh(this.value);"
+                  
                 >
                   <option value="">-Tỉnh/Thành Phố-</option>
                   //Lấy danh sách các Tỉnh/Thành Phố 
                   <?php $thanhPho = $ctl -> getThanhPho($_SESSION['login']);?>
                   <?php foreach ($thanhPho as $output) {?>
-                  <option value="<?php echo $output['ten']?>"><?php echo $output['ten']?></option>
+                  <option value="<?php echo $output['ma']?>"><?php echo $output['ten']?></option>
                   <?php }?>
                 </select>
               </div>
@@ -71,12 +72,7 @@
                 >
                   <option value="">-Quận/Huyện/Thị Xã-</option>
                   //Lấy danh sách các Quận/Huyện theo Tỉnh/Thành phố
-                  <?php 
-                    //if(isset($_POST['chon_tinh'])) echo $_POST['chon_tinh']; 
-                    $quan = $ctl -> getQuan();?>
-                  <?php foreach ($quan as $output) {?>
-                  <option ><?php echo $output['ten']?></option>
-                  <?php }?>
+                  //Ajax api
                 </select>
               </div>
               <div class="col-sm-3 tam-tru">
@@ -89,11 +85,7 @@
                 >
                   <option value="">-Xã/Phường-</option>
                   //Lấy danh sách các Phường/Xã
-                  <?php 
-                    $phuong = $ctl -> getPhuong();?>
-                  <?php foreach ($phuong as $output) {?>
-                  <option ><?php echo $output['ten']?></option>
-                  <?php }?>
+                  //Ajax api
                 </select>
               </div>
               <div class="col-sm-2">
@@ -101,6 +93,7 @@
                   class="btn btn-block submit-button"
                   type="submit"
                   id="submit-button"
+                  name="submit";
                 >
                   Submit
                 </button>
@@ -110,6 +103,35 @@
         </div>
       </div>
     </section>
+    <script>
+      $(document).ready(function(){
+        $("#chon_tinh").change(function(){
+          var ma = $(this).val();
+          $.ajax({
+            url: "../models/infoModel.php",
+            //url: "test.php",
+            method: "POST",
+            data:{maThanhPho:ma},
+            success:function(data) {
+              $('#chon_huyen').html(data);
+            }
+          });
+        });
+
+        $("#chon_huyen").change(function(){
+          var ma = $(this).val();
+          $.ajax({
+            url: "../models/infoModel.php",
+            //url: "test.php",
+            method: "POST",
+            data:{maQuan:ma},
+            success:function(data) {
+              $('#chon_xa').html(data);
+            }
+          });
+        });
+      });
+    </script>
 </html>
 
 <?php
