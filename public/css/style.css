@@ -171,7 +171,6 @@ input[type="search"] {
   margin-bottom: 10px;
 }
 
-
 .navbar .noafter::after {
   height: 0px;
 }
@@ -184,7 +183,7 @@ input[type="search"] {
 }
 
 .submit-button {
-  color: white; 
+  color: white;
   background-color: rgb(24, 163, 197);
 }
 
@@ -205,22 +204,26 @@ input[type="search"] {
   height: 50px;
 }
 
-#pdf{
-  width: fit-content; 
+#pdf {
+  width: fit-content;
 }
 
 #pdf:hover {
   background-color: #dfdede;
 }
 
-.manage-content .btn-default{
+.manage-content .btn-default {
   width: 5.9rem;
   color: white;
   background-color: #eb9aab;
   border: none;
 }
 
-.manage-content .btn-default:hover{
+.manage-content .btn-default:hover {
   background-color: #e26e87;
   border: #666;
+}
+
+#login-button:hover {
+  background-color: rgb(200, 200, 200);
 }
