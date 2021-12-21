@@ -11,12 +11,21 @@
             $maHuyen = $_POST["chon_huyen"];
             $maXa = $_POST["chon_xa"];
             $maDiaChi = (string)$_SESSION["login"]; //Lấy mã địa chỉ là tên đăng nhập của user
-            
+            echo $maTinh;
+            echo "hello";
+            echo $maHuyen;
+            echo "ello";
+            echo $maXa;
             //kiểm tra nếu là A1 và không nhập tỉnh/huyện/xã sẽ đưa ra thông tin cả nước
             if($maDiaChi === "1" && !$maTinh) { 
                 $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info'); 
                 $stmt -> execute();           
                 return $stmt -> fetchAll(PDO::FETCH_ASSOC);         
+            }
+            // Nếu không phải là A1 và không nhập tỉnh/huyện/xã thì không đưa ra thông tin
+            if(strlen($maDiaChi) >= 2 && !$maTinh) { 
+                $stmt = array();         
+                return $stmt;         
             }
             //Nếu người quản lí chỉ nhập tỉnh và huyện, không nhập xã
             //sẽ đưa ra danh sách dân số thuộc tỉnh huyện đã nhập 
