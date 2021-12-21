@@ -62,7 +62,7 @@
                   style="width: 100%"
 
                 >
-                  <option value="">-Quận/Huyện/Thị Xã-</option>
+                  <option value="">-Quận/Huyện-</option>
                   //Lấy danh sách các Quận/Huyện theo Tỉnh/Thành phố
                   //Ajax api
                 </select>

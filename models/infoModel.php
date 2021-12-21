@@ -105,7 +105,7 @@
         //$conn = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
 
         $maQuan = $_POST['maQuan'];
-        $output = '<option>--Chọn xã/phường--</option>';
+        $output = '<option>-Xã/Phường-</option>';
         $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
         $stmt -> bindValue(1, $maQuan);
         $stmt -> execute();  
