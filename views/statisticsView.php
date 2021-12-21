@@ -6,7 +6,7 @@
     <section>
       <style scoped>
         .header-container {
-          padding-top: 50px;
+          padding-top: 45px;
         }
         @media screen and (min-width: 800px) {
           .header-container {
@@ -19,7 +19,7 @@
           }
 
           .tam-tru {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
           }   
         }
       </style>
