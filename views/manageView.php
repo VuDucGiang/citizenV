@@ -9,6 +9,7 @@
     if(isset($_POST['submitAddManager']))  {
         try {   
             $ctl -> addManager();
+            echo '<META HTTP-EQUIV="Refresh" Content="0">';
         }
         
         catch(Exception $e) {
@@ -20,6 +21,7 @@
     if(isset($_POST['del_but']))  {
         try {   
             $ctl -> deleteManager();
+            echo '<META HTTP-EQUIV="Refresh" Content="0">';
         }
         
         catch(Exception $e) {
@@ -31,6 +33,7 @@
     if(isset($_POST['edit_but']))  {
         try {   
             $ctl -> editManager();
+            echo '<META HTTP-EQUIV="Refresh" Content="0">';
         }
         
         catch(Exception $e) {
@@ -42,6 +45,7 @@
     if(isset($_POST['lock_but']))  {
         try {   
             $ctl -> lockManager();
+            echo '<META HTTP-EQUIV="Refresh" Content="0">';
         }
         
         catch(Exception $e) {
@@ -52,6 +56,7 @@
     if(isset($_POST['date_submit']))  {
         try {   
             $ctl -> openManager();
+            echo '<META HTTP-EQUIV="Refresh" Content="0">';
         }
         
         catch(Exception $e) {

@@ -9,7 +9,7 @@
 <section class="navbar-after">
   <style scoped> 
     .header-container {
-      padding-top: 10px;
+      padding-top: 50px;
     }
     @media screen and (min-width: 800px) {
       .header-container {
