@@ -79,6 +79,18 @@
                   //Ajax api
                 </select>
               </div>
+              <div class="col-sm-3 tam-tru">
+                <select
+                  class="form-control"
+                  id="chon_thon"
+                  name="chon_thon"
+                  style="width: 100%"
+                >
+                  <option value="">-Thôn/Bản/Tổ dân số-</option>
+                  //Lấy danh sách các Thôn/Bản/Tổ dân số
+                  //Ajax api
+                </select>
+              </div>
               <div class="col-sm-2">
                 <button
                   class="btn btn-block submit-button"
@@ -119,6 +131,19 @@
             }
           });
         });
+
+        $("#chon_xa").change(function(){
+          var ma = $(this).val();
+          $.ajax({
+            url: "../models/infoModel.php",
+            method: "POST",
+            data:{maThon:ma},
+            success:function(data) {
+              $('#chon_thon').html(data);
+            }
+          });
+        });
+
       });
     </script>
 </html>
@@ -129,6 +154,7 @@
       $ret = $ctl -> proc();
       //generate json file cập nhật lại sau mỗi lần truy cập
       $bytes = file_put_contents("../public/info.json", $ret);
+      require_once('../public/html/info.html');
     }
       
     catch(Exception $e) {
@@ -141,5 +167,5 @@
   $ctl2 -> proc();
   $ctl3 = new DeleteController();
   $ctl3 -> proc();
-  require_once('../public/html/info.html');
+  
 ?>
