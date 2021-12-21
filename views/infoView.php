@@ -7,35 +7,34 @@ $ctl = new InfoController();
 ?>
 <html>
 <section class="navbar-after">
-  <style scoped>
+  <style scoped> 
     .header-container {
-      padding-top: 40px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: white;
-      z-index: 1;
-      position: fixed;
+      padding-top: 15px;
+    }
+    @media screen and (min-width: 800px) {
+      .header-container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        z-index: 1;
+        position: fixed;
+      }
+
+      .tam-tru {
+        margin-bottom: 15px;
+      }   
     }
 
-    b {
-      font-size: 1%;
-    }
   </style>
   <div class="container-fluid header-container">
-    <div class="row col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
-      <div id="search-box">
-        <input type="search" id="search" placeholder="Nhập thông tin cần tìm" />
-        <span class="search"><i class="fa fa-search" aria-hidden="true"></i></span>
-      </div>
-    </div>
-    <div class="row col-sm-offset-1 col-sm-10">
+    <div class="row col-sm-12">
       <form class="custom-form select-form" method="post">
         <div class="form-group">
-          <div class="col-md-offset-1 col-sm-3 tam-tru">
+          <div class="col-sm-offset-3 col-sm-3 tam-tru">
             <select class="form-control thanh_pho" id="chon_tinh" name="chon_tinh">
-              <option value="">-Tỉnh/Thành Phố-</option>
-              //Lấy danh sách các Tỉnh/Thành Phố
+              <option value="">-Tỉnh/Thành phố-</option>
+              //Lấy danh sách các Tỉnh/Thành phố
               <?php $thanhPho = $ctl->getThanhPho($_SESSION['login']); ?>
               <?php foreach ($thanhPho as $output) { ?>
                 <option value="<?php echo $output['ma'] ?>"><?php echo $output['ten'] ?></option>
@@ -49,20 +48,34 @@ $ctl = new InfoController();
               //Ajax api
             </select>
           </div>
-          <div class="col-sm-3 tam-tru">
-            <select class="form-control" id="chon_xa" name="chon_xa">
-              <option value="">-Xã/Phường-</option>
-              //Lấy danh sách các Phường/Xã
-              //Ajax api
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <button class="btn btn-block submit-button" type="submit" id="submit-button" name="submit" ;>
-              Submit
-            </button>
-          </div>
+        </div>
+        <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-3 tam-tru">
+          <select class="form-control" id="chon_xa" name="chon_xa">
+            <option value="">-Xã/Phường-</option>
+            //Lấy danh sách các Phường/Xã
+            //Ajax api
+          </select>
+        </div>
+        <div class="col-sm-3 tam-tru">
+          <select class="form-control" id="chon_thon" name="chon_thon" style="width: 100%">
+            <option value="">-Thôn/Bản/Tổ dân phố-</option>
+            //Lấy danh sách các Thôn/Bản/Tổ dân phố
+            //Ajax api
+          </select>
+        </div>
+        <div class="col-sm-1">
+          <button class="btn btn-block submit-button" type="submit" id="submit-button" name="submit" ;>
+            Tìm
+          </button>
         </div>
       </form>
+    </div>
+    <div class="row col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10">
+      <div id="search-box">
+        <input type="search" id="search" placeholder="Nhập thông tin cần tìm" />
+        <span class="search"><i class="fa fa-search" aria-hidden="true"></i></span>
+      </div>
     </div>
   </div>
 </section>
@@ -95,6 +108,21 @@ $ctl = new InfoController();
         }
       });
     });
+
+    $("#chon_xa").change(function() {
+      var ma = $(this).val();
+      $.ajax({
+        url: "../models/infoModel.php",
+        method: "POST",
+        data: {
+          maThon: ma
+        },
+        success: function(data) {
+          $('#chon_thon').html(data);
+        }
+      });
+    });
+
   });
 </script>
 
@@ -106,6 +134,7 @@ if (isset($_POST['submit'])) {
     $ret = $ctl->proc();
     //generate json file cập nhật lại sau mỗi lần truy cập
     $bytes = file_put_contents("../public/info.json", $ret);
+    require_once('../public/html/info.html');
   } catch (Exception $e) {
     $error_msg = $e->getMessage();
   }
@@ -115,5 +144,5 @@ $ctl2 = new UpdateController();
 $ctl2->proc();
 $ctl3 = new DeleteController();
 $ctl3->proc();
-require_once('../public/html/info.html');
+
 ?>

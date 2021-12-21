@@ -24,12 +24,17 @@
                 return $stmt -> fetchAll(PDO::FETCH_ASSOC);         
             }
             // Nếu không phải là A1 và không nhập tỉnh/huyện/xã thì không đưa ra thông tin
-            if(strlen($maDiaChi) >= 2 && $maHuyen == '-Quận/Huyện-') { 
+            if(strlen($maDiaChi) >= 2 && !$maTinh) { 
                 $stmt = array();         
                 return $stmt;         
             }
             // Nếu không phải là A1, A2 và không nhập huyện/xã thì không đưa ra thông tin
-            if(strlen($maDiaChi) >= 4 && $maXa == '-Xã/Phường-') { 
+            if(strlen($maDiaChi) >= 4 && $maHuyen == '-Quận/Huyện-') { 
+                $stmt = array();         
+                return $stmt;         
+            }
+            // Nếu không phải là A1, A2, A3 và không nhập huyện/xã thì không đưa ra thông tin
+            if(strlen($maDiaChi) >= 6 && $maXa == '-Xã/Phường-') { 
                 $stmt = array();         
                 return $stmt;         
             }
@@ -58,7 +63,6 @@
         }
 
         public function getThanhPho($username) {
-            //$GLOBALS['login'] = (string)$username;
             $username = (string)$username;
             //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username
             $maThanhPho = substr($username, 0, 2);
@@ -118,19 +122,45 @@
 
         $maQuan = $_POST['maQuan'];
         $output = '<option>-Xã/Phường-</option>';
-         //Thông tin quận/huyện của A1, A2
+         //Thông tin quận/huyện của A1, A2,  A3
          if(strlen($uname) <= 4) {
             $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
             $stmt -> bindValue(1, $maQuan);
             $stmt -> execute();  
             $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
         } else {
-            //Thông tin quận/huyện của A3, B1
+            //Thông tin quận/huyện của B1
             $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE ma LIKE ?'); 
             $stmt -> bindValue(1, $maPhuong);
             $stmt -> execute();  
             $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
+        foreach($result as $op) {
+            $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
+        }
+        echo $output;
+    }
+
+    if(isset($_POST['maThon'])){
+        
+        //Lấy mã thôn = 8 chữ số đầu của username
+        //$maThon = substr($uname, 0, 8);
+
+        $maPhuong = $_POST['maThon'];
+        $output = '<option>-Thôn/Bản/Tổ dân phố-</option>';
+         //Thông tin Thôn/Bản/Tổ dân phố của A1, A2, A3, B1
+         if(strlen($uname) <= 6) {
+            $stmt = $conn ->prepare('SELECT ma, ten FROM thon WHERE maPhuong LIKE ?'); 
+            $stmt -> bindValue(1, $maPhuong);
+            $stmt -> execute();  
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        } /*else {
+            //Thông tin quận/huyện của B2
+            $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE ma LIKE ?'); 
+            $stmt -> bindValue(1, $maTh);
+            $stmt -> execute();  
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        }*/
         foreach($result as $op) {
             $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
         }

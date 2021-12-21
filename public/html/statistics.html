@@ -9,82 +9,74 @@
     <section>
       <style scoped>
         .header-container {
-          padding-top: 55px;
-          padding-bottom: 5px;
-          width: 100%;
-          /* margin-bottom: 0px; */
-          margin-left: auto;
-          margin-right: auto;
-          background-color: white;
-          z-index: 1;
-          position: fixed;
+          padding-top: 50px;
+        }
+        @media screen and (min-width: 800px) {
+          .header-container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            z-index: 1;
+            position: fixed;
+          }
+
+          .tam-tru {
+            margin-bottom: 15px;
+          }   
         }
       </style>
-      <div class="header-container">
-        <div class="row col-sm-offset-1 col-sm-10">
-          <form class="custom-form select-form" method="post">
-            <div class="form-group">
-              <div class="col-sm-offset-1 col-sm-3 tam-tru">
-                <select
-                  class="form-control"
-                  id="chon_tinh"
-                  name="chon_tinh"
-                  style="width: 100%"
-                  onchange="add_tinh(this.value);"
-                >
-                  <option value="">-Tỉnh/Thành Phố-</option>
-                  <!-- Data  load from ajax method-->
-                </select>
+        <div class="header-container">
+          <div class="row col-sm-12">
+            <form class="custom-form select-form" method="post">
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-3 tam-tru">
+                  <select class="form-control thanh_pho" id="chon_tinh" name="chon_tinh">
+                    <option value="">-Tỉnh/Thành phố-</option>
+                    //Lấy danh sách các Tỉnh/Thành phố
+                  </select>
+                </div>
+                <div class="col-sm-3 tam-tru">
+                  <select class="form-control" id="chon_huyen" name="chon_huyen">
+                    <option value="">-Quận/Huyện-</option>
+                    //Lấy danh sách các Quận/Huyện theo Tỉnh/Thành phố
+                    //Ajax api
+                  </select>
+                </div>
               </div>
-              <div class="col-sm-3 tam-tru">
-                <select
-                  class="form-control"
-                  id="chon_huyen"
-                  name="chon_huyen"
-                  style="width: 100%"
-                  onchange="add_huyen(this.value);"
-                >
-                  <option value="">-Quận/Huyện-</option>
-                  <!-- Data  load from ajax method-->
-                </select>
-              </div>
-              <div class="col-sm-3 tam-tru">
-                <select
-                  class="form-control"
-                  id="chon_xa"
-                  name="chon_xa"
-                  style="width: 100%"
-                  onchange="add_xa(this.value);"
-                >
+              <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-3 tam-tru">
+                <select class="form-control" id="chon_xa" name="chon_xa">
                   <option value="">-Xã/Phường-</option>
-                  <!-- Data  load from ajax method-->
+                  //Lấy danh sách các Phường/Xã
+                  //Ajax api
                 </select>
               </div>
-              <div class="col-sm-2">
-                <button
-                  class="btn btn-block submit-button"
-                  type="submit"
-                  id="submit-button"
-                >
-                  Submit
+              <div class="col-sm-3 tam-tru">
+                <select class="form-control" id="chon_thon" name="chon_thon" style="width: 100%">
+                  <option value="">-Thôn/Bản/Tổ dân phố-</option>
+                  //Lấy danh sách các Thôn/Bản/Tổ dân phố
+                  //Ajax api
+                </select>
+              </div>
+              <div class="col-sm-1">
+                <button class="btn btn-block submit-button" type="submit" id="submit-button" name="submit" ;>
+                  Tìm
                 </button>
               </div>
-            </div>
-          </form>
-        </div>
-      </div>
+            </form>
+          </div>
     </section>
     <section class="content">
       <style scoped>
-        div.container-fluid {
+        .container-fluid {
           position: relative;
-          top: 120px;
-          margin-left: 2rem;
+          top: 160px;
         }
-        @media screen and (max-width : 765px) {
-          div.container-fluid {
-          top: 230px;
-        }
+        @media only screen and (max-width : 765px) {
+          #table-content {
+            top: 0px;
+          }
         }
       </style>
       <div class="container-fluid">
