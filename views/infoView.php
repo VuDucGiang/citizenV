@@ -3,14 +3,6 @@
     require_once('../controllers/updateController.php');
     require_once('../controllers/deleteController.php');
     $ctl = new InfoController();
-    $ret = $ctl -> proc();
-    //generate json file cập nhật lại sau mỗi lần truy cập
-    $bytes = file_put_contents("../public/info.json", $ret); 
-
-    $ctl2 = new UpdateController();
-    $ctl2 -> proc();
-    $ctl3 = new DeleteController();
-    $ctl3 -> proc();
     
 ?>
 <html>
@@ -68,7 +60,7 @@
                   id="chon_huyen"
                   name="chon_huyen"
                   style="width: 100%"
-                  onchange="add_huyen(this.value);"
+
                 >
                   <option value="">-Quận/Huyện-</option>
                   //Lấy danh sách các Quận/Huyện theo Tỉnh/Thành phố
@@ -81,7 +73,6 @@
                   id="chon_xa"
                   name="chon_xa"
                   style="width: 100%"
-                  onchange="add_xa(this.value);"
                 >
                   <option value="">-Xã/Phường-</option>
                   //Lấy danh sách các Phường/Xã
@@ -109,7 +100,6 @@
           var ma = $(this).val();
           $.ajax({
             url: "../models/infoModel.php",
-            //url: "test.php",
             method: "POST",
             data:{maThanhPho:ma},
             success:function(data) {
@@ -122,7 +112,6 @@
           var ma = $(this).val();
           $.ajax({
             url: "../models/infoModel.php",
-            //url: "test.php",
             method: "POST",
             data:{maQuan:ma},
             success:function(data) {
@@ -135,5 +124,22 @@
 </html>
 
 <?php
-    require_once('../public/html/info.html');
+  if(isset($_POST['submit']))  {
+    try {   
+      $ret = $ctl -> proc();
+      //generate json file cập nhật lại sau mỗi lần truy cập
+      $bytes = file_put_contents("../public/info.json", $ret);
+    }
+      
+    catch(Exception $e) {
+      $error_msg = $e->getMessage();
+    }
+  
+  }
+
+  $ctl2 = new UpdateController();
+  $ctl2 -> proc();
+  $ctl3 = new DeleteController();
+  $ctl3 -> proc();
+  require_once('../public/html/info.html');
 ?>
