@@ -27,21 +27,4 @@
                 
             }
 
-            public function getQuan() { 
-
-                $model = new InfoModel();
-                $result = $model -> getQuan();
-                
-                return $result;   
-                
-            }
-
-            public function getPhuong() { 
-
-                $model = new InfoModel();
-                $result = $model -> getPhuong();
-                
-                return $result;   
-                
-            }
         }

@@ -11,11 +11,7 @@
             $maHuyen = $_POST["chon_huyen"];
             $maXa = $_POST["chon_xa"];
             $maDiaChi = (string)$_SESSION["login"]; //Lấy mã địa chỉ là tên đăng nhập của user
-            echo $maTinh;
-            echo "hello";
-            echo $maHuyen;
-            echo "ello";
-            echo $maXa;
+            
             //kiểm tra nếu là A1 và không nhập tỉnh/huyện/xã sẽ đưa ra thông tin cả nước
             if($maDiaChi === "1" && !$maTinh) { 
 
