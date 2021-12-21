@@ -25,18 +25,12 @@
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="../assets/css/jquery-ui.css" rel="stylesheet">
-  <link href="../assets/css/jquery.dataTables.min.css" rel="stylesheet">
-  <!-- <link href="../assets/css/style.css" rel="stylesheet"> -->
   <link href="../assets/css/responsive.css" rel="stylesheet">
 
   <!-- Bootstrap + JQuery JS -->
   <script src="../assets/js/jquery.min.js"></script>
   <script src="../assets/js/bootstrap.min.js"></script>
   <script src="../assets/js/jquery-ui-1.9.2.datepicker.min.js"></script>
-  <script src="../assets/js/jquery.reject.js"></script>
-  <script src="../assets/js/utils.js"></script> 
-  <script src="../assets/js/jquery.dataTables.min.js"></script>
-
 
   <!-- Custom styles for this template -->
   <link href="../public/css/style.css" rel="stylesheet">

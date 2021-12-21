@@ -9,7 +9,7 @@ $ctl = new InfoController();
 <section class="navbar-after">
   <style scoped> 
     .header-container {
-      padding-top: 15px;
+      padding-top: 10px;
     }
     @media screen and (min-width: 800px) {
       .header-container {
@@ -22,7 +22,7 @@ $ctl = new InfoController();
       }
 
       .tam-tru {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }   
     }
 
