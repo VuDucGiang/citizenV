@@ -18,18 +18,24 @@
             echo $maXa;
             //kiểm tra nếu là A1 và không nhập tỉnh/huyện/xã sẽ đưa ra thông tin cả nước
             if($maDiaChi === "1" && !$maTinh) { 
+
                 $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info'); 
                 $stmt -> execute();           
                 return $stmt -> fetchAll(PDO::FETCH_ASSOC);         
             }
             // Nếu không phải là A1 và không nhập tỉnh/huyện/xã thì không đưa ra thông tin
-            if(strlen($maDiaChi) >= 2 && !$maTinh) { 
+            if(strlen($maDiaChi) >= 2 && $maHuyen == '--Chọn quận/huyện--') { 
+                $stmt = array();         
+                return $stmt;         
+            }
+            // Nếu không phải là A1, A2 và không nhập huyện/xã thì không đưa ra thông tin
+            if(strlen($maDiaChi) >= 4 && $maXa == '-Xã/Phường-') { 
                 $stmt = array();         
                 return $stmt;         
             }
             //Nếu người quản lí chỉ nhập tỉnh và huyện, không nhập xã
             //sẽ đưa ra danh sách dân số thuộc tỉnh huyện đã nhập 
-            if($maXa == '--Chọn xã/phường--'){
+            if($maXa == '-Xã/Phường-'){
                 $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info where maDiaChi like ?');
                 $stmt -> bindValue(1, "$maHuyen%"); 
                 $stmt -> execute();           
@@ -76,32 +82,30 @@
 
     }
     
+    session_start();
+    $uname = (string)$_SESSION['login'];
     include'connect.php';
     $conn = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
     if(isset($_POST['maThanhPho'])){
-       
         $maThanhPho = $_POST['maThanhPho'];
         $output = '<option>--Chọn quận/huyện--</option>';
-
-        //$uname = (string)$_SESSION['login'];
-        //echo "<script type='text/javascript'>alert('$maThanhPho';</script>";
     
         //Lấy mã quận/huyện = 4 chữ số đầu của username
-        //$maQuan = substr($uname, 0, 4);
+        $maQuan = substr($uname, 0, 4);
         
         //Thông tin quận/huyện của A1, A2
-        /*if(strlen($uname) <= 2) {
+        if(strlen($uname) <= 2) {
             $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE maThanhPho LIKE ?'); 
             $stmt -> bindValue(1, $maThanhPho);
             $stmt -> execute();  
             $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-        } else {*/
+        } else {
             //Thông tin quận/huyện của A3, B1
-            $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE maThanhPho LIKE ?'); 
-            $stmt -> bindValue(1, $maThanhPho);
+            $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE ma LIKE ?'); 
+            $stmt -> bindValue(1, $maQuan);
             $stmt -> execute();  
             $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-        //}
+        }
         foreach($result as $op) {
             $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
         }
@@ -109,19 +113,28 @@
     }
 
     if(isset($_POST['maQuan'])){
-        //$conn = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
+        
+        //Lấy mã phường/xã = 6 chữ số đầu của username
+        $maPhuong = substr($uname, 0, 6);
 
         $maQuan = $_POST['maQuan'];
         $output = '<option>-Xã/Phường-</option>';
-        $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
-        $stmt -> bindValue(1, $maQuan);
-        $stmt -> execute();  
-        $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+         //Thông tin quận/huyện của A1, A2
+         if(strlen($uname) <= 4) {
+            $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE maQuan LIKE ?'); 
+            $stmt -> bindValue(1, $maQuan);
+            $stmt -> execute();  
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            //Thông tin quận/huyện của A3, B1
+            $stmt = $conn ->prepare('SELECT ma, ten FROM phuong WHERE ma LIKE ?'); 
+            $stmt -> bindValue(1, $maPhuong);
+            $stmt -> execute();  
+            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        }
         foreach($result as $op) {
             $output.='<option value="'.$op['ma'].'">'.$op['ten'].'</option>';
         }
         echo $output;
     }
-  
-    
 ?>
