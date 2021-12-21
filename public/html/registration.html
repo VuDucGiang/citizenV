@@ -10,15 +10,15 @@
     <section id="registration-content">
       <style scoped>
         #regis {
-          position: relative; 
-          top: 60px; 
+          position: relative;
+          top: 60px;
         }
       </style>
       <div class="container">
         <div id="regis" class="row">
           <div class="col-sm-3">
             <div class="bcon">
-              <img src="../public/images/logo.png"/>
+              <img src="../public/images/logo.png" />
               <h1
                 style="
                   color: white;
@@ -37,12 +37,12 @@
               </div>
               <div class="col-xs-2" id="pdf">
                 <a target="_blank" href="../Mẫu phiếu điều tra.pdf">
-                  <img src="../public/images/pdf.png"/>
+                  <img src="../public/images/pdf.png" />
                   <p>In phiếu</p>
                 </a>
               </div>
             </div>
-            
+
             <!-- Form start hear //<?php echo $_SERVER['PHP_SELF'];?> -->
             <form
               class="form-horizontal custom-form"
@@ -97,7 +97,7 @@
                     name="b_date"
                     placeholder="1996-01-01"
                     type="text"
-                    readonly            
+                    readonly
                     required
                     oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
                   />
@@ -131,228 +131,6 @@
                     ></label>
                     <label for="fe-male"> Nữ</label>
                   </div>
-                </div>
-              </div>
-              <!-- Quê quán -->
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label>Quê quán</label>
-                </div>
-                <div class="col-sm-4 que-quan">
-                  <select
-                    class="form-control"
-                    id="que_tinh"
-                    name="que_tinh"
-                    style="width: 100%"
-                    onchange="add_tinh(this.value);"
-                    pattern=".{0,}"                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Tỉnh/Thành Phố-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-                <div class="col-sm-4 que-quan">
-                  <select
-                    class="form-control"
-                    id="que_huyen"
-                    name="que_huyen"
-                    style="width: 100%"
-                    onchange="add_huyen(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Quận/Huyện-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label></label>
-                </div>
-                <div class="col-sm-4 que-quan">
-                  <select
-                    class="form-control"
-                    id="que_xa"
-                    name="que_xa"
-                    style="width: 100%"
-                    onchange="add_xa(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Xã/Phường-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-                <div class="col-sm-4 input-column que-quan">
-                  <input
-                    class="form-control"
-                    id="que_duong"
-                    name="que_duong"
-                    placeholder="Thôn/Bản/Tổ dân phố"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <!-- Địa chỉ thường trú -->
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label>Địa chỉ thường trú</label>
-                </div>
-                <div class="col-sm-4 thuong-tru">
-                  <select
-                    class="form-control"
-                    id="thuong_tinh"
-                    name="thuong_tinh"
-                    style="width: 100%"
-                    onchange="add_tinh(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Tỉnh/Thành Phố-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                    <option value="Temp">Temp</option>
-                  </select>
-                </div>
-                <div class="col-sm-4 thuong-tru">
-                  <select
-                    class="form-control"
-                    id="thuong_huyen"
-                    name="thuong_huyen"
-                    style="width: 100%"
-                    onchange="add_huyen(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Quận/Huyện-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label></label>
-                </div>
-                <div class="col-sm-4 thuong-tru">
-                  <select
-                    class="form-control"
-                    id="thuong_xa"
-                    name="thuong_xa"
-                    style="width: 100%"
-                    onchange="add_xa(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Xã/Phường-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-                <div class="col-sm-4 input-column thuong-tru">
-                  <input
-                    class="form-control"
-                    id="thuong_duong"
-                    name="thuong_duong"
-                    placeholder="Thôn/Bản/Tổ dân phố"
-                    type="text"
-                  />
-                </div>
-              </div>
-              <!-- Địa chỉ tạm trú -->
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label>Địa chỉ tạm trú</label>
-                </div>
-                <div class="col-sm-4 tam-tru">
-                  <select
-                    class="form-control"
-                    id="tam_tinh"
-                    name="tam_tinh"
-                    style="width: 100%"
-                    onchange="add_tinh(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Tỉnh/Thành Phố-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-                <div class="col-sm-4 tam-tru">
-                  <select
-                    class="form-control"
-                    id="tam_huyen"
-                    name="tam_huyen"
-                    style="width: 100%"
-                    onchange="add_huyen(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Quận/Huyện-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-4 control-label">
-                  <label></label>
-                </div>
-                <div class="col-sm-4 tam-tru">
-                  <select
-                    class="form-control"
-                    id="tam_xa"
-                    name="tam_xa"
-                    style="width: 100%"
-                    onchange="add_xa(this.value);"
-                    pattern=".{0,}"
-                    
-                    oninput="setCustomValidity('')"
-                    required
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
-                  >
-                    <option value="">-Xã/Phường-</option>
-                    <option value="Temp">Temp</option>
-                    <!-- Data  load from ajax method-->
-                  </select>
-                </div>
-                <div class="col-sm-4 input-column">
-                  <input
-                    class="form-control"
-                    id="tam_duong"
-                    name="tam_duong"
-                    placeholder="Thôn/Bản/Tổ dân phố"
-                    type="text"
-                  />
                 </div>
               </div>
               <!-- Văn hóa, tôn giáo -->
@@ -418,6 +196,63 @@
                   />
                 </div>
               </div>
+              <!-- Quê quán -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Quê quán</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="que_quan"
+                    name="que_quan"
+                    placeholder="Quê quán"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ thường trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ thường trú</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="thuong_tru"
+                    name="thuong_tru"
+                    placeholder="Địa chỉ thường trú"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ tạm trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ tạm trú</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="tam_tru"
+                    name="tam_tru"
+                    placeholder="Địa chỉ tạm trú"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
 
               <!-- Submit/Reset -->
               <div class="form-group">
@@ -435,10 +270,7 @@
                   </button>
                 </div>
                 <div class="col-sm-4">
-                  <button
-                    class="btn btn-block submit-button"
-                    type="reset"
-                  >
+                  <button class="btn btn-block submit-button" type="reset">
                     Reset
                   </button>
                 </div>

@@ -8,10 +8,10 @@
 <html>
 <section class="navbar-after">
   <style scoped> 
-    .header-container {
-      padding-top: 45px;
-    }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 765px) {
+      .header-container {
+        padding-top: 45px;
+      }
       .header-container {
         width: 100%;
         margin-left: auto;
@@ -23,6 +23,15 @@
 
       .tam-tru {
         margin-bottom: 10px;
+      }   
+    }
+
+    @media screen and (max-width: 765px) {
+      .header-container {
+        padding-top: 65px;
+      }
+      .tam-tru {
+        margin-bottom: 15px;
       }   
     }
 

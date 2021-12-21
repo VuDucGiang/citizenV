@@ -26,8 +26,18 @@
 .navbar li:hover::after {
   width: 100%;
 }
+
+#nav-after {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.navbar .noafter::after {
+  height: 0px;
+}
+
 /**********************/
-/*****Registation*******/
+/*****Registration*******/
 /**********************/
 .bcon {
   padding-top: 25%;
@@ -45,46 +55,8 @@
 #section {
   margin-bottom: 3px;
 }
-/**********************/
-/*****Login Form*******/
-/**********************/
-.vcen {
-  min-width: 500px;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  width: 50%;
-  height: 50%;
-  min-width: 200px;
-  max-width: 400px;
-  padding: 40px;
-}
-@media (max-width: 500px) {
-  .vcen {
-    min-width: 90%;
-  }
-}
 
-#logo-container {
-  margin: auto;
-  margin-bottom: 10px;
-  width: 200px;
-  height: 30px;
-}
 
-/************************/
-/********All Table*******/
-/************************/
-input[type="text"],
-select#stc,
-select#city,
-select#section,
-input[type="email"],
-input[type="radio"] {
-  color: #000000;
-}
 /************************/
 /********Search Box*******/
 /************************/
@@ -131,14 +103,6 @@ input[type="search"] {
 /**********************/
 /*******Student**********/
 /**********************/
-#nav-after {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.navbar .noafter::after {
-  height: 0px;
-}
 
 .form-login {
   width: 100%;
@@ -162,9 +126,6 @@ input[type="search"] {
   background-color: rgb(24, 163, 197);
 }
 
-th.text-center {
-  vertical-align: middle;
-}
 
 .del-edit-header {
   width: 130px;
