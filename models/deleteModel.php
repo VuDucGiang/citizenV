@@ -3,7 +3,8 @@
     class DeleteModel {
         
         public function __construct() {
-            require_once('connect.php');
+            require('connect.php');
+            $this->pdo = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
         }
 
         public function delete() {
@@ -18,8 +19,6 @@
                 
             try {   
                 $f_cccd_old = $_POST['f_cccd_old'];
-               
-                include('connect.php');
                 
                 $stmt = $this -> pdo ->prepare("DELETE FROM `info` WHERE cccd = ?;");
                 $stmt -> bindValue(1, $f_cccd_old);

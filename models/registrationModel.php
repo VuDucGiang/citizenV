@@ -3,7 +3,8 @@
     class RegistrationModel {
 
         public function __construct() {
-            require_once('connect.php');
+            require('connect.php');
+            $this->pdo = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
         }
 
         public function submit() {
@@ -47,7 +48,7 @@
                 $stmt = $this -> pdo ->prepare("INSERT INTO `info` (`cccd`, `ten`, `ngaySinh`, `gioiTinh`, `queQuan`, `diaChiThuongTru`, `diaChiTamTru`, `tonGiao`, `trinhDoVanHoa`, `ngheNghiep`, `maDiaChi`) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 
-                //$stmt->bindParam("isssssssss", $f_cccd, $f_name,$b_date,$gender,$que_quan,$thuong_tru,$tam_tru,$ton_giao,$van_hoa,$ma_vung);
+               
                 $stmt -> bindValue(1, $f_cccd);
                 $stmt -> bindValue(2, $f_name);
                 $stmt -> bindValue(3, $b_date);
@@ -65,8 +66,6 @@
                 $message = "New records created successfully";
                 echo "<script type='text/javascript'>alert('$message');</script>";
 
-                //$stmt->close();
-                //$submit_pdo->close();
             }
             
             catch(Exception $e) {

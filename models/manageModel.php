@@ -4,6 +4,7 @@
 
         public function __construct() {
             require('connect.php');
+            $this->pdo = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
         }
 
         public function getManager() {
