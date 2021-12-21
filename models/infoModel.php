@@ -48,6 +48,7 @@
         }
     }
     if(isset($_POST['maThanhPho'])){
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
         $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
 
         $maThanhPho = $_POST['maThanhPho'];
@@ -63,6 +64,7 @@
     }
 
     if(isset($_POST['maQuan'])){
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
         $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
 
         $maQuan = $_POST['maQuan'];
