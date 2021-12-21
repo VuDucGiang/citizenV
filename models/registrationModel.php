@@ -12,7 +12,7 @@
             $f_cccd=$f_name=$b_date=$gender=$que_tinh=$que_huyen=$que_xa=$que_duong=$thuong_tinh=$thuong_huyen=$thuong_xa=$thuong_duong
             =$tam_tinh=$tam_huyen=$tam_xa=$tam_duong=$van_hoa=$ton_giao=$job=$ma_vung="";
             $error_msg="";
-            
+            $que_quan = $thuong_tru= $tam_tru="";
 
             if(isset($_POST['submit_but'])) 
             {
@@ -22,23 +22,14 @@
                 $b_date = $_POST['b_date'];
                 $gender = $_POST['gender'];
 
-                $que_tinh = $_POST['que_tinh'];
-                $que_huyen = $_POST['que_huyen'];
-                $que_xa = $_POST['que_xa'];
-                $que_duong = $_POST['que_duong'];
-                $que_quan = $que_xa . ", " . $que_huyen . ", " . $que_tinh;
                 
-                $thuong_tinh = $_POST['thuong_tinh'];
-                $thuong_huyen = $_POST['thuong_huyen'];
-                $thuong_xa = $_POST['thuong_xa'];   
-                $thuong_duong = $_POST['thuong_duong'];
-                $thuong_tru = $thuong_duong . ", " . $thuong_xa . ", " . $thuong_huyen . ", " . $thuong_tinh;
+                $que_quan = $_POST['que_quan'];
+                
+                
+                $thuong_tru = $_POST['thuong_tru'];
 
-                $tam_tinh = $_POST['tam_tinh'];
-                $tam_huyen = $_POST['tam_huyen'];
-                $tam_xa = $_POST['tam_xa'];   
-                $tam_duong = $_POST['tam_duong'];
-                $tam_tru = $tam_duong . ", " . $tam_xa . ", " . $tam_huyen . ", " . $tam_tinh;
+               
+                $tam_tru = $_POST['tam_tru'];
 
                 $van_hoa = $_POST['van_hoa'];   
                 $ton_giao = $_POST['ton_giao'];
