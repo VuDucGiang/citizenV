@@ -83,7 +83,7 @@
             </li>
 
             <li
-              class="dropdown noafter <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo ' active' ?>">
+              class="dropdown <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo ' active' ?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Tài khoản[<?php print_r($_SESSION['login'])?>]<span class="caret"></span>
               </a>

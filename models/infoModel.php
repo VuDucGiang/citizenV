@@ -24,7 +24,7 @@
                 return $stmt -> fetchAll(PDO::FETCH_ASSOC);         
             }
             // Nếu không phải là A1 và không nhập tỉnh/huyện/xã thì không đưa ra thông tin
-            if(strlen($maDiaChi) >= 2 && $maHuyen == '--Chọn quận/huyện--') { 
+            if(strlen($maDiaChi) >= 2 && $maHuyen == '-Quận/Huyện-') { 
                 $stmt = array();         
                 return $stmt;         
             }
@@ -44,7 +44,7 @@
 
             //Nếu người quản lí chỉ nhập tỉnh không nhập huyện, xã
             //sẽ đưa ra danh sách dân số thuộc tỉnh đã nhập 
-            if($maHuyen == '--Chọn quận/huyện--'){
+            if($maHuyen == '-Quận/Huyện-'){
                 $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info where maDiaChi like ?');
                 $stmt -> bindValue(1, "$maTinh%"); 
                 $stmt -> execute();           
@@ -81,14 +81,13 @@
         }
 
     }
-    
     session_start();
     $uname = (string)$_SESSION['login'];
     include'connect.php';
     $conn = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
     if(isset($_POST['maThanhPho'])){
         $maThanhPho = $_POST['maThanhPho'];
-        $output = '<option>--Chọn quận/huyện--</option>';
+        $output = '<option>-Quận/Huyện-</option>';
     
         //Lấy mã quận/huyện = 4 chữ số đầu của username
         $maQuan = substr($uname, 0, 4);
