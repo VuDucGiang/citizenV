@@ -1,8 +1,8 @@
 <?php
-require_once('../controllers/infoController.php');
-require_once('../controllers/updateController.php');
-require_once('../controllers/deleteController.php');
-$ctl = new InfoController();
+  require_once('../controllers/infoController.php');
+  require_once('../controllers/updateController.php');
+  require_once('../controllers/deleteController.php');
+  $ctl = new InfoController();
 
 ?>
 <html>
