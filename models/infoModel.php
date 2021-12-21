@@ -1,5 +1,7 @@
 <?php
+    
     class InfoModel {
+        private $pdo;
 
         public function __construct() {
             require('connect.php');
@@ -24,9 +26,10 @@
             //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username
             $maThanhPho = substr($maThanhPho, 0, 2);
             if($maThanhPho === "1") {
-                $stmt = $this-> pdo ->prepare('SELECT ma, ten FROM thanhpho'); 
+                $stmt = $this-> pdo ->prepare('SELECT ma,ten FROM thanhpho'); 
             } else {
-                $stmt = $this-> pdo ->prepare('SELECT ma, ten FROM thanhpho WHERE ma LIKE ?');
+
+                $stmt = $this-> pdo ->prepare('SELECT ma,ten FROM thanhpho WHERE ma LIKE ?');
                 $stmt -> bindValue(1, $maThanhPho);
             }
             
@@ -34,24 +37,36 @@
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function getQuan($maThanhPho) {
-            $stmt = $this-> pdo ->prepare('SELECT ten FROM quan WHERE maThanhPho LIKE ?'); 
-            $stmt -> bindValue(1, $maThanhPho);
+        public function getQuan() {
+            if(isset($_POST['chon_tinh'])){
+            $chon_tinh = "";           
+            $chon_tinh = $_POST['chon_tinh'];
+            //echo "<script type='text/javascript'>alert('$chon_tinh');</script>";
+            $stmt = $this-> pdo ->prepare('SELECT ma,ten FROM quan WHERE maThanhPho = ?;'); 
+            $stmt -> bindValue(1, $chon_tinh);
             $stmt -> execute();           
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+         }
         }
 
         public function getPhuong() {
-            $stmt = $this-> pdo ->prepare('SELECT ten FROM phuong'); 
+            if(isset($_POST['chon_huyen'])){
+            $chon_huyen = "";           
+            $chon_huyen = $_POST['chon_huyen'];
+            $stmt = $this-> pdo ->prepare('SELECT ma,ten FROM phuong WHERE maQuan = ?;'); 
+            $stmt -> bindValue(1, $chon_huyen);
             $stmt -> execute();           
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+          }
         }
     }
     if(isset($_POST['maThanhPho'])){
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
         $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
 
+
         $maThanhPho = $_POST['maThanhPho'];
-        $output = '<option>-Quận/Huyện-</option>';
+        $output = '<option>-Quận/Huyện/Thị Xã-</option>';
         $stmt = $conn ->prepare('SELECT ma, ten FROM quan WHERE maThanhPho LIKE ?'); 
         $stmt -> bindValue(1, $maThanhPho);
         $stmt -> execute();  
@@ -63,6 +78,7 @@
     }
 
     if(isset($_POST['maQuan'])){
+        // $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', '');
         $conn = new PDO('mysql:host=localhost;dbname=citizenV', 'root', 'hiep');
 
         $maQuan = $_POST['maQuan'];
@@ -77,5 +93,5 @@
         echo $output;
     }
   
-    
+        
 ?>
