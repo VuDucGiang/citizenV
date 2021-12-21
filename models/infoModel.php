@@ -36,7 +36,6 @@
 			    return $stmt -> fetchAll(PDO::FETCH_ASSOC);
             }
             //Trường hợp còn lại người quản lí nhập đầy đủ thông tin tỉnh, huyện, xã
-            echo "anh m đây";
             $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info where maDiaChi like ?');
             $stmt -> bindValue(1, "$maXa%"); 
             $stmt -> execute();   
@@ -45,7 +44,6 @@
 
         public function getThanhPho($username) {
             //$GLOBALS['login'] = (string)$username;
-            //echo "<script type='text/javascript'>alert('$username');</script>";
             $username = (string)$username;
             //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username
             $maThanhPho = substr($username, 0, 2);
