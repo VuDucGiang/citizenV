@@ -81,7 +81,10 @@
         }
 
     }
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     $uname = (string)$_SESSION['login'];
     include'connect.php';
     $conn = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
