@@ -138,20 +138,44 @@
 </html>
 
 <?php
-if (isset($_POST['submit'])) {
-  try {
-    $ret = $ctl->proc();
-    //generate json file cập nhật lại sau mỗi lần truy cập
-    $bytes = file_put_contents("../public/info.json", $ret);
-    require_once('../public/html/info.html');
-  } catch (Exception $e) {
-    $error_msg = $e->getMessage();
+  if (isset($_POST['submit'])) {
+    try {
+      $ret = $ctl->proc();
+      //generate json file cập nhật lại sau mỗi lần truy cập
+      $bytes = file_put_contents("../public/info.json", $ret);
+      require_once('../public/html/info.html');
+    } catch (Exception $e) {
+      $error_msg = $e->getMessage();
+    }
   }
-}
 
-$ctl2 = new UpdateController();
-$ctl2->proc();
-$ctl3 = new DeleteController();
-$ctl3->proc();
+  
+  if(isset($_POST['del_but'])) {
+    $uname = (string)$_SESSION['login'];
+    $result = $ctl -> getQuyen($uname);
+    $quyen = $result[0]["quyen"];
+     echo $quyen;
+    if($quyen == 1) {
+      $ctl3 = new DeleteController();
+      $ctl3->proc();
+    } else {
+      echo "<script type='text/javascript'>alert('Bạn chưa được cấp quyền');</script>";
+      echo "VLL";
+    }
+  }
+
+  if(isset($_POST['update_but'])) {
+    $uname = (string)$_SESSION['login'];
+    $result = $ctl -> getQuyen($uname);
+    $quyen = $result[0]["quyen"];
+     echo $quyen;
+    if($quyen == 1) {
+      $ctl2 = new UpdateController();
+      $ctl2->proc();
+    } else {
+      echo "<script type='text/javascript'>alert('Bạn chưa được cấp quyền');</script>";
+      echo "VLL";
+    }
+  }
 
 ?>
