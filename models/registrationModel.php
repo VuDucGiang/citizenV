@@ -63,7 +63,7 @@
                 
                 $stmt -> execute();
                 
-                $message = "New records created successfully";
+                $message = "Nhập dữ liệu thành công!";
                 echo "<script type='text/javascript'>alert('$message');</script>";
 
             }

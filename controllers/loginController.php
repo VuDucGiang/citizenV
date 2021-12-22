@@ -24,7 +24,7 @@
                         $_SESSION["login"] = $uname;
                         header('Location: views/homeView.php');
                     } else {
-                        echo "<script type='text/javascript'>alert('Tên đăng nhập hoặc mật khẩu sai!');</script>";
+                        echo '<script type="text/javascript">$(".alert").css("visibility", "visible");</script>';
                     }
                 }
             }
