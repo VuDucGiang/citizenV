@@ -139,11 +139,23 @@
 
 <?php
   if (isset($_POST['submit'])) {
+    
     try {
+      
+
       $ret = $ctl->proc();
       //generate json file cập nhật lại sau mỗi lần truy cập
       $bytes = file_put_contents("../public/info.json", $ret);
-      require_once('../public/html/info.html');
+      
+      $ctlt = new InfoController();
+      $uname = (string)$_SESSION['login'];
+      $result = $ctlt -> getQuyen($uname);
+      $quyen = $result[0]["quyen"];
+      
+      if($quyen == 0){
+      require_once('../public/html/info_notPermit.html');}
+      if($quyen == 1){
+        require_once('../public/html/info.html');}
     } catch (Exception $e) {
       $error_msg = $e->getMessage();
     }
