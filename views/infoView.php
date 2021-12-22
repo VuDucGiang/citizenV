@@ -170,10 +170,8 @@
     if($quyen == 1) {
       $ctl3 = new DeleteController();
       $ctl3->proc();
-    } else {
-      echo "<script type='text/javascript'>alert('Bạn chưa được cấp quyền');</script>";
-      echo "VLL";
-    }
+      require_once('../public/html/info.html');
+    } 
   }
 
   if(isset($_POST['update_but'])) {
@@ -184,10 +182,8 @@
     if($quyen == 1) {
       $ctl2 = new UpdateController();
       $ctl2->proc();
-    } else {
-      echo "<script type='text/javascript'>alert('Bạn chưa được cấp quyền');</script>";
-      echo "VLL";
-    }
+      require_once('../public/html/info.html');
+    } 
   }
 
 ?>
