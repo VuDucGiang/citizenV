@@ -170,7 +170,7 @@
     if($quyen == 1) {
       $ctl3 = new DeleteController();
       $ctl3->proc();
-      require_once('../public/html/info.html');
+      
     } 
   }
 
@@ -182,7 +182,7 @@
     if($quyen == 1) {
       $ctl2 = new UpdateController();
       $ctl2->proc();
-      require_once('../public/html/info.html');
+      
     } 
   }
 
