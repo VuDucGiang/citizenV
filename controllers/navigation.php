@@ -1,5 +1,12 @@
 <?php
-  if ((!isset($_GET['page']))) include 'registrationController.php';
+  
+  if ((!isset($_GET['page']))) {
+    if (strlen((string)$_SESSION['login']) < 6) {
+      include 'infoController.php';
+    } else {
+      include 'registrationController.php';
+    }
+  }
 
   if(isset($_GET['page'])) {
     $page=$_GET['page'];

@@ -1,12 +1,12 @@
 <?php
-  /*$user=0;
+/*$user=0;
   $login=0;*/
-  session_start();
-  /*if (isset($_SESSION['newSession'])) {
+session_start();
+/*if (isset($_SESSION['newSession'])) {
     $login=1;
     $user=1;
   }*/
-  //print_r($_SESSION);
+//print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -41,15 +41,14 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"> 
-            <span style="color: rgb(24, 163, 197);">          
+          <a class="navbar-brand" href="#">
+            <span style="color: rgb(24, 163, 197);">
               <img src="../public/images/logo.png" height="30" width="30">
               CitizenV
             </span>
@@ -60,26 +59,44 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
 
-            <li <?php if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page']=='1')) echo 'class="active"' ?> >
+            <li class=" <?php if (strlen((string)$_SESSION['login']) < 6) {
+                          echo 'hidden';
+                        } else {
+                          if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page'] == '1')) {
+                            echo 'active';
+                          }
+                        } ?>">
               <a href="?page=1">Nhập liệu</a>
             </li>
 
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='2' ) echo 'class="active"' ?>>
-            <a href="?page=2">Dữ liệu</a>
+            <li <?php
+                if (strlen((string)$_SESSION['login']) == 8) {
+                  echo 'class="hidden"';
+                }
+                if ((!isset($_GET['page']) && strlen((string)$_SESSION['login']) < 6) || (isset($_GET['page']) && $_GET['page'] == '2')) {
+                  echo 'class="active"';
+                }
+                ?>>
+              <a href="?page=2">Dữ liệu</a>
             </li>
 
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='3' ) echo 'class="active"' ?>>
-            <a href="?page=3">Thống kê</a>
-            </li>
-            
-            <li <?php if (isset($_GET['page']) && $_GET['page']=='4' ) echo 'class="active"' ?>>
-            <a href="?page=4">Quản lý</a>
+            <li <?php if (strlen((string)$_SESSION['login']) == 8) {
+                  echo 'class="hidden"';
+                }
+                if (isset($_GET['page']) && $_GET['page'] == '3') echo 'class="active"' ?>>
+              <a href="?page=3">Thống kê</a>
             </li>
 
-            <li
-              class="dropdown <?php if (isset($_GET['page']) && $_GET['page']=='5' ) echo ' active' ?>">
+            <li <?php if (strlen((string)$_SESSION['login']) == 8) {
+                  echo 'class="hidden"';
+                }
+                if (isset($_GET['page']) && $_GET['page'] == '4') echo 'class="active"' ?>>
+              <a href="?page=4">Quản lý</a>
+            </li>
+
+            <li class="dropdown <?php if (isset($_GET['page']) && $_GET['page'] == '5') echo 'active' ?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Tài khoản[<?php print_r($_SESSION['login'])?>]<span class="caret"></span>
+                Tài khoản[<?php print_r($_SESSION['login']) ?>]<span class="caret"></span>
               </a>
               <ul class="dropdown-menu ">
                 <li class="noafter"><a href="?page=5">Đăng xuất</a></li>
@@ -90,5 +107,6 @@
       </div><!-- /.container-fluid -->
     </nav>
   </header>
-  </html>
-<?php require "../controllers/navigation.php"; ?> 
+
+</html>
+<?php require "../controllers/navigation.php"; ?>
