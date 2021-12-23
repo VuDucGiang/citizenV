@@ -11,7 +11,7 @@ $(document).ready(function () {
           "<tr>" +
           "<td id=don-vi-" + (i + 1) + ">" + ret.data[i].donVi + "</td>" +
           "<td id=user-" + (i + 1) + ">" + ret.data[i].username + "</td>" +
-          "<td id=pass-" + (i + 1) + ">" + ret.data[i].password + "</td>" +
+          "<td style='-webkit-text-security: disc;' id=pass-" + (i + 1) + ">" + ret.data[i].password + "</td>" +
           "<td id=o-date-" + (i + 1) + ">" + ret.data[i].ngayMo + "</td>" +
           "<td id=c-date-" + (i + 1) + ">" + ret.data[i].ngayDong + "</td>" +
           "<td id=tien-do-" + (i + 1) + ">" + ret.data[i].tienDo + "</td>" +
