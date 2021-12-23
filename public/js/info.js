@@ -4,6 +4,7 @@
 
 
 $(document).ready(function () {
+  //tìm kiếm search box
   $("#search").keyup(function () {
     _this = this;
     // Show only matching TR, hide rest of them
