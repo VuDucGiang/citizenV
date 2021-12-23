@@ -6,28 +6,26 @@
     } else {
       include 'registrationController.php';
     }
-  }
-
-  if(isset($_GET['page'])) {
+  } else {
     $page=$_GET['page'];
 
     if ($page == '1'){
 
       include 'registrationController.php';
     }
-    if ($page == '2'){
+    else if ($page == '2'){
       include 'infoController.php';
     }
-    if ($page == '3'){
+    else if ($page == '3'){
       include 'statisticsController.php';
     }
-    if ($page == '4'){
+    else if ($page == '4'){
       include 'manageController.php';
     }
-    if ($page == '5'){
+    else if ($page == '5'){
       include 'reportController.php';
     }
-    if ($page == '6'){
+    else if ($page == '6'){
       session_unset(); 
       session_destroy();
       header('Location: ../index.php');

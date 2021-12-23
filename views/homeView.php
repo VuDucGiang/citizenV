@@ -113,9 +113,6 @@ session_start();
       </div><!-- /.container-fluid -->
     </nav>
   </header>
-  
-  // fetch quyen vao span nay
-  <span class="hidden" id="quyen" name="quyen"></span>
 
 </html>
 <?php require "../controllers/navigation.php"; ?>
