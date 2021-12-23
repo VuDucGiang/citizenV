@@ -102,7 +102,7 @@ session_start();
               <ul class="dropdown-menu">
                 <li class="noafter 
                   <?php
-                  if ((strlen((string)$_SESSION['login']) == 8)) echo 'hidden';
+                  if ((strlen((string)$_SESSION['login']) == 1)) echo 'hidden';
                   if (isset($_GET['page']) && $_GET['page'] == '5') echo 'active'; ?>"
                 ><a href="?page=5">Báo cáo tiến độ</a></li>
                 <li class="noafter"><a href="?page=6">Đăng xuất</a></li>
@@ -113,6 +113,9 @@ session_start();
       </div><!-- /.container-fluid -->
     </nav>
   </header>
+  
+  // fetch quyen vao span nay
+  <span class="hidden" id="quyen" name="quyen"></span>
 
 </html>
 <?php require "../controllers/navigation.php"; ?>
