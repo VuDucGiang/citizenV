@@ -25,6 +25,9 @@
       include 'manageController.php';
     }
     if ($page == '5'){
+      include 'reportController.php';
+    }
+    if ($page == '6'){
       session_unset(); 
       session_destroy();
       header('Location: ../index.php');

@@ -153,7 +153,7 @@
       $quyen = $result[0]["quyen"];
       
       if($quyen == 0){
-      require_once('../public/html/info_notPermit.html');}
+        require_once('../public/html/info_notPermit.html');}
       if($quyen == 1){
         require_once('../public/html/info.html');}
     } catch (Exception $e) {

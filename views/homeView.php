@@ -59,13 +59,14 @@ session_start();
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
 
-            <li class=" <?php if (strlen((string)$_SESSION['login']) < 6) {
-                          echo 'hidden';
-                        } else {
-                          if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page'] == '1')) {
-                            echo 'active';
-                          }
-                        } ?>">
+            <li class=" 
+              <?php if (strlen((string)$_SESSION['login']) < 6) {
+                echo 'hidden';
+              } else {
+                if (!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page'] == '1')) {
+                  echo 'active';
+                }
+              } ?>">
               <a href="?page=1">Nhập liệu</a>
             </li>
 
@@ -98,8 +99,13 @@ session_start();
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 Tài khoản[<?php print_r($_SESSION['login']) ?>]<span class="caret"></span>
               </a>
-              <ul class="dropdown-menu ">
-                <li class="noafter"><a href="?page=5">Đăng xuất</a></li>
+              <ul class="dropdown-menu">
+                <li class="noafter 
+                  <?php
+                  if ((strlen((string)$_SESSION['login']) == 8)) echo 'hidden';
+                  if (isset($_GET['page']) && $_GET['page'] == '5') echo 'active'; ?>"
+                ><a href="?page=5">Báo cáo tiến độ</a></li>
+                <li class="noafter"><a href="?page=6">Đăng xuất</a></li>
               </ul>
             </li>
           </ul>
