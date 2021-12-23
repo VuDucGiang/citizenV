@@ -8,6 +8,15 @@
                 
             }
 
+            public function getQuyen($uname) { 
+
+                $model = new ManageModel();
+                $result = $model -> getQuyen($uname);
+                
+                return $result;   
+                
+            }
+
             public function proc() { 
 
                 $model = new ManageModel();

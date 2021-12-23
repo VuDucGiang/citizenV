@@ -6,6 +6,14 @@
             require('connect.php');
             $this->pdo = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
         }
+        
+        public function getQuyen($uname) {
+            echo $uname;
+                
+            $stmt = $this -> pdo ->query("SELECT quyen FROM user WHERE username LIKE '$uname'");
+            return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                
+        }
 
         public function getManager() {
             //lấy thông tin của người dưới cấp, ví dụ A1 sẽ xem A2, A2 xem A3, ...

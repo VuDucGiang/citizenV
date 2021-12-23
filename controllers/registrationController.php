@@ -7,11 +7,20 @@
         public function __construct() {
 
         }
-
+ 
         public function proc() { 
 
             $model = new RegistrationModel();
             $model -> submit();
+        }
+
+        public function getQuyen($uname) { 
+
+            $model = new RegistrationModel();
+            $result = $model -> getQuyen($uname);
+            
+            return $result;   
+            
         }
     }
 ?>

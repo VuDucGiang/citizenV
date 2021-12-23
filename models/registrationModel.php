@@ -7,6 +7,14 @@
             $this->pdo = new PDO("mysql:host=$host; dbname=$dbname;", $username, $password);
         }
 
+        public function getQuyen($uname) {
+            echo $uname;
+                
+            $stmt = $this -> pdo ->query("SELECT quyen FROM user WHERE username LIKE '$uname'");
+            return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                
+        }
+
         public function submit() {
 
             $f_cccd=$f_name=$b_date=$gender=$que_tinh=$que_huyen=$que_xa=$que_duong=$thuong_tinh=$thuong_huyen=$thuong_xa=$thuong_duong

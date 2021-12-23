@@ -1,6 +1,14 @@
 <?php
-    require_once('../public/html/manage.html');
     require_once('../controllers/manageController.php');
+    $ctlt = new ManageController();
+    $uname = (string)$_SESSION['login'];
+    $result = $ctlt -> getQuyen($uname);
+    $quyen = $result[0]["quyen"];
+    if($quyen == 1){
+    require_once('../public/html/manage.html');}
+    if($quyen == 0){
+        require_once('../public/html/manage_notPermit.html');}
+    
 
     $ctl = new ManageController();
     $ret = $ctl -> proc();
