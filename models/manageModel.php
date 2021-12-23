@@ -97,8 +97,8 @@
         public function lockManager() {   
             $username_old = "";
             $username_old = $_POST['username_old'];
-            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 0,ngayMo = NULL,ngayDong = NULL WHERE username = ? ;");
-            $stmt -> bindValue(1, $username_old);
+            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 0,ngayMo = NULL,ngayDong = NULL WHERE username lIKE ? ;");
+            $stmt -> bindValue(1, "$username_old%");
             $stmt -> execute();
             
             

@@ -24,8 +24,8 @@
                 $stmt -> bindValue(1, $f_cccd_old);
                 $stmt -> execute();
                 
-                $message = "New records deleted successfully";
-                echo "<script type='text/javascript'>alert('$message');</script>";
+                /*$message = "New records deleted successfully";
+                echo "<script type='text/javascript'>alert('$message');</script>";*/
                 
  
             }

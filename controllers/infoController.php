@@ -13,7 +13,7 @@
                 $model = new InfoModel();
                 $result = $model -> getInfo();
                 $arr = array("status"=>"OK", "data" => $result);
-                //echo json_encode($arr, JSON_UNESCAPED_UNICODE);
+                
                 return json_encode($arr, JSON_UNESCAPED_UNICODE);    
                 
             }
@@ -22,6 +22,15 @@
 
                 $model = new InfoModel();
                 $result = $model -> getThanhPho($username);
+                
+                return $result;   
+                
+            }
+
+            public function getQuyen($uname) { 
+
+                $model = new InfoModel();
+                $result = $model -> getQuyen($uname);
                 
                 return $result;   
                 

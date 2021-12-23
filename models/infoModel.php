@@ -58,6 +58,14 @@
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getQuyen($uname) {
+            echo $uname;
+                
+            $stmt = $this -> pdo ->query("SELECT quyen FROM user WHERE username LIKE '$uname'");
+            return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                
+        }
+
         public function getThanhPho($username) {
             $username = (string)$username;
             //Lấy mã thành phố/ tỉnh = 2 chữ số đầu của username

@@ -54,11 +54,11 @@
                     class="form-control"
                     name="f_cccd"
                     type="text"
-                    placeholder="123456789"
-                    pattern="[0-9]{9,12}"
+                    placeholder="123456789/123456789999"
+                    pattern="\d{9}|\d{12}"
                     required
                     oninput="setCustomValidity('')"
-                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng 9 số hoặc 12 số và không để trống!')"
                   />
                 </div>
               </div>
@@ -90,7 +90,7 @@
                     class="form-control datepicker"
                     id="datepicker"
                     name="b_date"
-                    placeholder="1996-01-01"
+                    placeholder="2001-08-18"
                     type="text"
                     readonly
                     required
@@ -182,7 +182,7 @@
                     class="form-control"
                     id="ma_vung"
                     name="ma_vung"
-                    placeholder="12345678"
+                    placeholder="01010101"
                     pattern="[0-9]{8}"
                     required
                     oninput="setCustomValidity('')"
