@@ -39,17 +39,44 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
             $tien_do = "Chưa hoàn thành";
+
+            $uname = (string)$_SESSION["login"]; 
+            //insert vào table thanhpho nếu là A1
+            if(strlen($uname) == 1) { 
+                $stmt = $this-> pdo ->prepare('INSERT INTO thanhpho (ma, ten) VALUE (?,?)'); 
+                $stmt -> bindValue(1, $username);
+                $stmt -> bindValue(2, $don_vi);  
+                $stmt -> execute();        
+            } else if(strlen($uname) == 2) {//insert vào table quan nếu là A2
+                $stmt = $this-> pdo ->prepare('INSERT INTO quan (ma, ten, maThanhPho) VALUE (?,?,?)'); 
+                $stmt -> bindValue(1, $username);
+                $stmt -> bindValue(2, $don_vi); 
+                $stmt -> bindValue(3, $uname);
+                $stmt -> execute(); 
+                } else if(strlen($uname) == 4) {//insert vào table phuong nếu là A3
+                    $stmt = $this-> pdo ->prepare('INSERT INTO phuong (ma, ten, maQuan) VALUE (?,?,?)'); 
+                    $stmt -> bindValue(1, $username);
+                    $stmt -> bindValue(2, $don_vi); 
+                    $stmt -> bindValue(3, $uname);
+                    $stmt -> execute(); 
+                    } else if(strlen($uname) == 6) {//insert vào table thon nếu là B1
+                        $stmt = $this-> pdo ->prepare('INSERT INTO thon (ma, ten, maQuan) VALUE (?,?,?)'); 
+                        $stmt -> bindValue(1, $username);
+                        $stmt -> bindValue(2, $don_vi); 
+                        $stmt -> bindValue(3, $uname);
+                        }
             
-            
-            $stmt = $this -> pdo ->prepare("INSERT INTO user (donVi, username, password, tienDo) 
+
+            //thêm tài khoản vào user
+            $stmt2 = $this -> pdo ->prepare("INSERT INTO user (donVi, username, password, tienDo) 
                                             VALUES (?, ?, ?, ?);");
 
-            $stmt -> bindValue(1, $don_vi);
-            $stmt -> bindValue(2, $username);
-            $stmt -> bindValue(3, $password);
-            $stmt -> bindValue(4, $tien_do);
+            $stmt2 -> bindValue(1, $don_vi);
+            $stmt2 -> bindValue(2, $username);
+            $stmt2 -> bindValue(3, $password);
+            $stmt2 -> bindValue(4, $tien_do);
                     
-            $stmt -> execute();
+            $stmt2 -> execute();
                     
             $message = "Cấp tài khoản thành công!";
             echo "<script type='text/javascript'>alert('$message');</script>";
