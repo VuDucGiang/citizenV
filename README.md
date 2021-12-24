@@ -73,3 +73,7 @@ Thông tin về mỗi người dân chỉ là những thông tin cơ bản về 
 - Tôn giáo
 - Trình độ văn hóa
 - Nghề nghiệp
+
+Cài đặt:
+-Tạo database, import file citizenvDB
+-Sửa thông tin phù hợp trong file connect.php
