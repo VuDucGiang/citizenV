@@ -13,7 +13,7 @@
             $maDiaChi = (string)$_SESSION["login"]; //Lấy mã địa chỉ là tên đăng nhập của user
             
             //kiểm tra nếu là A1 và không nhập tỉnh/huyện/xã sẽ đưa ra thông tin cả nước
-            if($maDiaChi === "1" && !$maTinh) { 
+            if(strlen($maDiaChi) == 1 && !$maTinh) { 
 
                 $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info'); 
                 $stmt -> execute();           
@@ -75,7 +75,7 @@
             $maPhuong = substr($username, 0, 6);
 
             //Thông tin tỉnh/thành phố của A1
-            if($username === "1") {
+            if(strlen($username) == 1) {
                 $stmt = $this-> pdo ->prepare('SELECT ma, ten FROM thanhpho'); 
                 $stmt -> execute();           
 			    return $stmt -> fetchAll(PDO::FETCH_ASSOC);
