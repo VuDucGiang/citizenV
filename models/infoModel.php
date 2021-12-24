@@ -10,6 +10,7 @@
             $maTinh = $_POST["chon_tinh"];
             $maHuyen = $_POST["chon_huyen"];
             $maXa = $_POST["chon_xa"];
+            $maThon = $_POST["chon_thon"];
             $maDiaChi = (string)$_SESSION["login"]; //Lấy mã địa chỉ là tên đăng nhập của user
             
             //kiểm tra nếu là A1 và không nhập tỉnh/huyện/xã sẽ đưa ra thông tin cả nước
@@ -34,6 +35,16 @@
                 $stmt = array();         
                 return $stmt;         
             }
+
+            //Nếu người quản lí chỉ nhập tỉnh và huyện, phường không nhập thôn bản
+            //sẽ đưa ra danh sách dân số thuộc phường đã nhập 
+            if($maThon == '-Thôn/Bản/Tổ dân phố-'){
+                $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info where maDiaChi like ?');
+                $stmt -> bindValue(1, "$maXa%"); 
+                $stmt -> execute();           
+			    return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            }
+
             //Nếu người quản lí chỉ nhập tỉnh và huyện, không nhập xã
             //sẽ đưa ra danh sách dân số thuộc tỉnh huyện đã nhập 
             if($maXa == '-Xã/Phường-'){
@@ -53,7 +64,7 @@
             }
             //Trường hợp còn lại người quản lí nhập đầy đủ thông tin tỉnh, huyện, xã
             $stmt = $this-> pdo ->prepare('select *, 2021-year(ngaySinh) AS tuoi from info where maDiaChi like ?');
-            $stmt -> bindValue(1, "$maXa%"); 
+            $stmt -> bindValue(1, "$maThon"); 
             $stmt -> execute();   
 			return $stmt -> fetchAll(PDO::FETCH_ASSOC);
         }
