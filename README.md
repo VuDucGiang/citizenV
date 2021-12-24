@@ -75,5 +75,6 @@ Thông tin về mỗi người dân chỉ là những thông tin cơ bản về 
 - Nghề nghiệp
 
 Cài đặt:                                   
--Tạo database, import file citizenvDB                                 
--Sửa thông tin phù hợp trong file connect.php
+-Tạo database có tên là 'citizenV', import file citizenvDB.sql                                 
+-Sửa thông tin tài khoản phù hợp trong file connect.php ở trong tệp models để truy cập vào server
+-Cho phép event hoạt động bằng câu lệnh "SET GLOBAL event_scheduler = ON;"

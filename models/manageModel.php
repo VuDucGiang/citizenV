@@ -120,11 +120,30 @@
             $username_old = $_POST['username_old'];
             $open_date = $_POST['open_date'];
             $close_date = $_POST['close_date'];
-            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 1,ngayMo = ?,ngayDong = ? WHERE username = ? ;");
+            $event1 = $_POST['username_old'] . 'o';
+            $event2 = $_POST['username_old'] . 'c';
+            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 1,ngayMo = ?,ngayDong = ? WHERE username = ? ;
+                                            DROP EVENT IF EXISTS `?`;
+                                            CREATE EVENT `?` ON SCHEDULE AT ?
+                                            DO update user set quyen = 1 where username = ? ;
+                                            DROP EVENT IF EXISTS `?`;
+                                            CREATE EVENT `?` ON SCHEDULE AT ?
+                                            DO update user set quyen = 0 where username = ? ;
+                                            ");
             $stmt -> bindValue(1, $open_date);
             $stmt -> bindValue(2, $close_date);
             $stmt -> bindValue(3, $username_old);
+            $stmt -> bindValue(4, $event1);
+            $stmt -> bindValue(5, $event1);
+            $stmt -> bindValue(6, $open_date . ' 00:00:01');
+            $stmt -> bindValue(7, $username_old);
+            $stmt -> bindValue(8, $event2);
+            $stmt -> bindValue(9, $event2);
+            $stmt -> bindValue(10, $close_date . ' 23:59:59');
+            $stmt -> bindValue(11, $username_old);
             $stmt -> execute();
+
+            
 
             
         }
@@ -132,8 +151,15 @@
         public function lockManager() {   
             $username_old = "";
             $username_old = $_POST['username_old'];
-            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 0,ngayMo = NULL,ngayDong = NULL WHERE username lIKE ? ;");
+            $event1 = $_POST['username_old'] . 'o';
+            $event2 = $_POST['username_old'] . 'c';
+            $stmt = $this -> pdo ->prepare("UPDATE user SET quyen = 0,ngayMo = NULL,ngayDong = NULL WHERE username lIKE ? ;
+                                            DROP EVENT IF EXISTS `?`;
+                                            DROP EVENT IF EXISTS `?`;
+                                            ");
             $stmt -> bindValue(1, "$username_old%");
+            $stmt -> bindValue(2, $event1);
+            $stmt -> bindValue(3, $event2);
             $stmt -> execute();
             
             

@@ -1,1 +1,1 @@
-{"status":"OK","data":[{"donVi":"Hải Phòng","username":"03","password":"123","quyen":"1","ngayMo":"2021-12-24","ngayDong":"2022-01-24","tienDo":"Hoàn thành"},{"donVi":"Nam Định","username":"04","password":"123","quyen":"1","ngayMo":"2021-12-24","ngayDong":"2022-01-24","tienDo":"Hoàn thành"}]}
+{"status":"OK","data":[{"donVi":"Hải Phòng","username":"03","password":"123","quyen":"0","ngayMo":null,"ngayDong":null,"tienDo":"Hoàn thành"}]}
